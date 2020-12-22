@@ -28,7 +28,7 @@
                 Currently I am working on multiple Program Synthesis projects with <a href="https://web.eecs.umich.edu/~xwangsd/">Prof. Xinyu Wang</a>. Also I am working on Real-Time Driving Experience Simulator supervised by <a href="http://www.umich.edu/~driving/staff/staff.html">Prof. Paul Green</a> in the University of Michigan Transportation Research Institute (UMTRI).
               </p>
               <p style="text-align:center">
-                <a href="zhiychen@umich.edu">Email</a> &nbsp/&nbsp
+                <a href="mailto:zhiychen@umich.edu">Email</a> &nbsp/&nbsp
                 <a href="https://github.com/jeffchen006/">Github</a>
               </p>
             </td>
@@ -44,8 +44,12 @@
               <heading>Research</heading>
               <p>
                 I'm interested in programming languages, artificial intelligence, and human-computer interactions. In particular, I'm recently interested in program synthesis and (symbolic) search algorithms. 
-                Specifically, here are some research questions which interest me most: (1) Improve the intepretability, fairness, robustness, and safety of black-box like ML/AI systems. 
-                (2) Incorporate human knowledge into a search process. (3) Accelerate program search using interactive methods and learning techniques.
+                Specifically, here are some research questions which interest me most: 
+                <ol>
+                  <li>Improve the intepretability, fairness, robustness, and safety of black-box like ML/AI systems. </li>
+                  <li>Incorporate human knowledge into a search process. </li>
+                  <li>Accelerate program search using interactive methods and learning techniques.</li>
+                </ol>
               </p>
             </td>
           </tr>
@@ -65,7 +69,7 @@
       </tbody></table>
 
 
-      <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
         <tr>
         <td style="padding:20px;width:100%;vertical-align:middle">
           <heading>Projects</heading>
@@ -77,24 +81,65 @@
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src='images/Shelhamer2015.jpg'>
+              <img src='images/figure_queries.png'>
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://drive.google.com/file/d/1stygV71uBruD7Ck9CaAQr7nREvr3DtUL/view?usp=sharing">
-                <papertitle>Scene Intrinsics and Depth from a Single Image</papertitle>
-              </a>
+
+              <papertitle>Accelerate Regular Expresssion Synthesis via Subexpression Queries</papertitle>
               <br>
-              <a href="http://imaginarynumber.net/">Evan Shelhamer</a>, <strong>Jonathan T. Barron</strong>, <a href="http://www.eecs.berkeley.edu/%7Etrevor/">Trevor Darrell</a>
-              <br>
-              <em>ICCV Workshop</em>, 2015
-              <br>
-              <a href="data/Shelhamer2015.bib">bibtex</a>
-              <p></p>
-              <p>The monocular depth estimates produced by fully convolutional networks can be used to inform intrinsic image estimation.</p>
+              <em>Individual research project of EECS499 </em>
+
+              <p>with Prof. <a href="https://web.eecs.umich.edu/~xwangsd/">Xinyu Wang</a> </p>
+              
+              <a href="pdfs/ZhiyangChen_EECS499_report.pdf">report</a>
+
+              <p>In this project, I proposed an algorithm to synthesize the most probable sub- expressions of the ground-truth regular expressions based on input-output examples. I evaluated and testified the effectiveness of sub-expression queries to accelerate regular expression synthesis.</p>
             </td>
           </tr>
 
+
           <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src='images/whitebox.png'>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+
+              <papertitle>Interpretable Program Synthesis </papertitle>
+              <br>
+              <em>CHI '21: Proceedings of the 2021 Conference on Human Factors in Computing Systems</em>
+              <br>
+              <p>with Dr. <a href="https://tianyi-zhang.github.io/">Tianyi Zhang</a>, Prof. <a href="https://web.eecs.umich.edu/~xwangsd/">Xinyu Wang</a>, Prof. <a href="https://glassmanlab.seas.harvard.edu/">Elena Glassman</a> </p>
+
+              <a href="https://www.youtube.com/watch?v=biUQi0GW6jc">video</a>
+
+              <p>We propose a novel approach that unveils the synthesis process and enables users to monitor and guide the synthesis. We designed three representations that explain the underlying synthesis process with different levels of fidelity.</p>
+            </td>
+          </tr>
+
+
+          
+
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src='images/car.png'>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+
+              <papertitle>Real-Time and Virtual Driving Simulator</papertitle>
+              <br>
+              <em>Project of Multidisciplinary Design Program(ENGR355)</em>
+              <br>
+              <p>with Prof. <a href="http://www.umich.edu/~driving/staff/staff.html">Paul Green</a> </p>
+
+              <a href="https://drive.google.com/file/d/1gfHyfdvE686qpgVA6es7aHM2WHWieAP-/view?usp=sharing">2-min presentation slides</a>
+              &nbsp &nbsp &nbsp &nbsp 
+              <a href="https://github.com/CenturyLiu/Carla-GUI">github</a>
+              <p>We built a GUI tool to help human-vehicle interaction researchers design and conduct traffic experiments with CARLA real-time driving simulator.</p>
+            </td>
+          </tr>
+
+
+          <!-- <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
               <img src="images/PABMM2015.jpg" alt="PontTuset" width="160" style="border-style: none">
             </td>
@@ -114,8 +159,13 @@
               <p>We produce state-of-the-art contours, regions and object candidates, and we compute normalized-cuts eigenvectors 20&times faster.</p>
               <p>This paper subsumes our CVPR 2014 paper.</p>
             </td>
-          </tr>
-        </tbody></table> -->
+          </tr> -->
+
+
+        </tbody></table>
+
+
+        
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
           <tr>

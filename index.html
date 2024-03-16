@@ -21,12 +21,19 @@
                 <name>Zhiyang Chen</name>
               </p>
               <p>
-                I am a PhD student at University of Toronto, supervised by <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> in the Software Engineering Group. My current research focus on Smart Contract Security and Program Synthesis. I'm generally interested in Programming Languages, Security and Distributed Systems. 
-            
+                I am a PhD student at University of Toronto, supervised by <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a>.
+              </p>
+
+              <p>
+                I also work as a part-time Research Engineer at <a href="https://quantstamp.com/team">Quantstamp</a>, building new security tools for audits and security monitoring.
+              </p>
+
+              <p>
+                My current research focus on Smart Contract Security and Program Synthesis. I'm generally interested in Programming Languages, Security and Distributed Systems.
               </p>
               
               <p>
-                Prior than that, I was luckily advised by <a href="https://web.eecs.umich.edu/~xwangsd/">Prof. Xinyu Wang</a> at UMich, we worked on multiple program synthesis projects, eliminating the gap between experts and novices in finding user-desired regular expressions. 
+                Prior than that, I was luckily advised by <a href="https://web.eecs.umich.edu/~xwangsd/">Prof. Xinyu Wang</a> at UMich, we worked on multiple program synthesis projects. 
               </p>
 
 
@@ -38,7 +45,7 @@
             </td>
 
             <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/self.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/self.jpg" class="hoverZoomLink"></a>
+              <a href="images/older_self.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/older_self.jpg" class="hoverZoomLink"></a>
             </td>
           </tr>
         </tbody></table>
@@ -58,14 +65,14 @@
                 <li>
                   <b>University of Toronto</b><br>
                   <i>PhD in Computer Science, May 2023 - 2026(Expected)</i><br>
-                  <i> <b>Advisor:</b> <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> and <a href="https://beillahi.github.io/">Dr. Sidi Mohamed Beillahi
+                  <i> <b>Advisor:</b> <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> 
                   </a></i>
                 </li>
 
                 <li>
                   <b>University of Toronto</b><br>
                   <i>MSc in Computer Science, Sept 2021 - Feb 2023</i><br>
-                  <i> <b>Advisor:</b> <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> and <a href="https://beillahi.github.io/">Dr. Sidi Mohamed Beillahi
+                  <i> <b>Advisor:</b> <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> 
                   </a></i>
                 </li>
                 
@@ -95,8 +102,13 @@
           <td style="padding:20px;width:100%;vertical-align:middle">
             <heading>Publication</heading>
             <p>
+              <b>Zhiyang Chen</b>, Sidi Mohamed Beillahi, Fan Long, “FlashSyn: Flash Loan Attack Synthesis via Counter 
+              Example Driven Approximation(ICSE 2024) <a href="https://arxiv.org/pdf/2206.10708.pdf">[extended paper]</a> <a href="https://github.com/FlashSyn-Artifact/FlashSyn-Artifact-ICSE24">[artifact]</a>   
+            </p>
+            <p>
               Tianyi Zhang, <b>Zhiyang Chen</b>, Yuanli Zhu, Priyan Vaithilingam, Xinyu Wang, Elena L. Glassman, “Interpretable
-              Program Synthesis”, Proceedings of the 2021 Conference on Human Factors in Computing Systems(CHI 2021)
+              Program Synthesis”, Proceedings of the 2021 Conference on Human Factors in Computing Systems(CHI 2021) <a href="https://dl.acm.org/doi/pdf/10.1145/3411764.3445646">[paper] </a> <a href="https://www.youtube.com/watch?v=biUQi0GW6jc">[video]</a> <a href="https://github.com/tianyi-zhang/interactive-program-synthesis">[artifact]</a>
+              
             </p>
           </td>
         </tr>
@@ -116,22 +128,37 @@
 
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src='images/flash.png'>
+              <img src='images/shield.png'>
             </td>
 
             <td style="padding:20px;width:75%;vertical-align:middle">
+              <papertitle>Runtime Guard Synthesis to Stop Hacks on the Fly</papertitle>
+              <br>
+              <em> Under submission </em>
+              <p>With <a href="https://franklinliu.github.io/">Dr. Ye Liu</a>, <a href="https://personal.ntu.edu.sg/yi_li/">Prof. Yi Li</a>, <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> and <a href="https://beillahi.github.io/">Dr. Sidi Mohamed Beillahi
+              </a> </p>
+              Smart contract transactions associated with security attacks often exhibit distinct behavioral patterns compared
+              with historical benign transactions before the attacking events. While many runtime monitoring and guarding
+              mechanisms have been proposed to validate invariants and stop anomalous transactions on the fly, the empirical
+              effectiveness of the invariants used remains largely unexplored. We developed a tool which dynamically
+              generates new invariants customized for a given contract based on its historical transaction data.        <p>
+              </p>
+            </td>
+          </tr>
+          
 
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src='images/flash.png'>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
               <papertitle>Flashloan Attack Synthesis</papertitle>
               <br>
-              <em> In Progress </em>
-
+              <em> Accepted to ICSE 2024, adopted by Quantstamp </em>
               <p>With <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> and <a href="https://beillahi.github.io/">Dr. Sidi Mohamed Beillahi
               </a> </p>
                 This project aims to build the first end-to-end program synthesis tool to detect flash loan attack vulnerabilities and automatically synthesize a profitable transition as proofs. Since executing smart contracts in a forked environment is notoriously slow, we propose a technique to speculate execution results locally. Our tool is evaluated in many flash loan attacks in the history of Ethereum and Binance Smart Chain. 
               <p>
-
-
-
               </p>
             </td>
           </tr>
@@ -231,6 +258,7 @@
             <td>
               <heading>Awards</heading>
               <ul>
+                <li>The Mitacs Accelerate Fellow with Bank of Canada, University of Toronto, 2023-2024</li>
                 <li>The Wolfond Scholarship in Wireless Information Technology, University of Toronto, 2021</li>
                 <li>Outstanding graduate of Shanghai Jiao Tong University, 2021</li>
                 <li>James B. Angell Scholar, UMich, 2021</li>
@@ -252,7 +280,7 @@
               </li>
               
               <li>
-                <i>I'm an <a href="https://www.youtube.com/watch?v=0AtTM9hgCDw&t=1s">afterlife</a> believer.</i>
+                <i>I'm an <a href="https://www.youtube.com/watch?v=0AtTM9hgCDw&t=1s">afterlife</a> believer. I doubt the possibility of Digital Immortality. </i> 
               </li>
             </ul>
           </td>
@@ -267,12 +295,10 @@
             <td>
               <heading>Service and Volunteer Activities</heading>
               <ul>
-                <li>Teaching Assistent of CSC108, CSC263, UofT, Fall 2021, Winter 2022.</li>
+                <li>Member, Artifact Evaluation Program Committee, PLDI 2024</li>
+                <li>Teaching Assistant of CSC108, CSC263, CSC373, CSC488(as head TA) at UofT</li>
                 <li>Grader of MATH 214 Linear Algebra, UMich, Fall 2020.</li>
-                <li>Tutor of EECS 280 Programming and Intro Data Structures, UMich, Fall 2020</li>
                 <li>Tau Beta Phi-Michigan Gamma, elected in Nov 2020 (attending a series of K12 and professional activities)</li>
-                <li>Summer Buddy Volunteer, Summer 2019</li>
-                <li>Publicity Department, UM-SJTU Joint Institute Student Union, 2017 - 2018</li>
               </ul>
 
             </td>

@@ -10,12 +10,11 @@
   <style>
     /* Reset & Basic Styles */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: Arial, sans-serif; 
-      line-height: 1.6; 
-      background: #f4f4f4; 
-      color: #333; 
-      padding: 0 1rem; /* adds left/right padding to the whole page */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #eef1f5;
+      color: #242933;
     }
     a { color: #007acc; text-decoration: underline; }
     a:hover { text-decoration: none; }
@@ -36,11 +35,12 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 240px; /* Increased width for extra sidebar padding */
+      width: 196px;
       height: 100vh;
-      background: #f0f0f0; /* Updated background color */
-      padding: 1rem 1rem 1rem 2rem;  /* Extra left padding (2rem) */
-      border-right: 1px solid #ccc; /* Slightly softer border color */
+      background: #111722;
+      padding: 6.5rem 0.85rem 1.25rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 8px 0 24px rgba(20, 25, 35, 0.1);
       overflow-y: auto;
     }
     .sidebar nav ul {
@@ -48,27 +48,84 @@
       padding: 0;
     }
     .sidebar nav ul li {
-      margin: 1rem 0;
+      margin: 0.12rem 0;
+    }
+    .sidebar a {
+      color: #c8d2e3;
+      display: block;
+      font-size: 0.94rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      padding: 0.58rem 0.7rem;
+      border-left: 3px solid transparent;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .sidebar a:hover,
+    .sidebar a:focus {
+      background: rgba(255, 255, 255, 0.07);
+      border-left-color: #6ca6ff;
+      color: #ffffff;
+      outline: none;
     }
     .main-content {
       flex: 1;
-      margin-left: 260px; /* Adjusted to account for increased sidebar width and gap */
-      padding: 1rem;
+      margin-left: 196px;
+      padding: 1.5rem 2rem 2rem;
+      min-width: 0;
     }
 
     /* Header */
-    header { background: #fff; padding: 1rem 0; border-bottom: 1px solid #ddd; }
+    header {
+      background: #ffffff;
+      padding: 1rem 0;
+      border-bottom: 1px solid #dce2ea;
+      box-shadow: 0 1px 8px rgba(20, 25, 35, 0.06);
+      position: relative;
+      z-index: 2;
+    }
     header h1 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
 
     /* Section Styling */
-    .section { background: #fff; margin: 1rem 0; padding: 1rem; border-radius: 4px; }
-    .section h2 { margin-bottom: 0.5rem; border-bottom: 2px solid #333; padding-bottom: 0.5rem; }
+    .section {
+      background: #ffffff;
+      margin: 0 0 1.25rem;
+      padding: 1.25rem;
+      border: 1px solid #dce2ea;
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(20, 25, 35, 0.06);
+    }
+    .section h2 {
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #243244;
+      padding-bottom: 0.5rem;
+      color: #182131;
+    }
 
     /* About Section */
     #about { display: flex; flex-wrap: wrap; align-items: center; }
     #about .profile { flex: 1 1 250px; text-align: center; padding: 1rem; }
     #about .profile img { width: 100%; max-width: 250px; border-radius: 50%; }
     #about .bio { flex: 2 1 300px; padding: 1rem; }
+    .bio-subheading { margin-top: 1rem; }
+    .bio details.folded-section {
+      margin-top: 1rem;
+    }
+    .experience-block {
+      margin-top: 0.9rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid #dce2ea;
+    }
+    .experience-block:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .experience-block h4 {
+      color: #182131;
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+    }
     .contact-links { margin-top: 1rem; text-align: center; }
     .contact-links a { margin: 0 0.5rem; }
 
@@ -79,6 +136,26 @@
     /* Publication Items (Links on New Line) */
     .publication-item { margin: 1rem 0; }
     .publication-item p { margin-bottom: 0.5rem; }
+    .folded-section {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid #dce2ea;
+      border-radius: 6px;
+      background: #f7f9fc;
+    }
+    .folded-section summary {
+      cursor: pointer;
+      color: #182131;
+      font-weight: 700;
+    }
+    .folded-section[open] summary {
+      margin-bottom: 0.75rem;
+    }
+    .publication-links a {
+      display: inline-block;
+      margin-right: 0.45rem;
+      white-space: nowrap;
+    }
     
     /* Utility classes for icon spacing */
     .icon { margin-right: 0.3rem; }
@@ -93,13 +170,41 @@
     .subsection h3 { border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
 
     /* Footer */
-    footer { text-align: center; background: #fff; padding: 1rem 0; border-top: 1px solid #ddd; }
+    footer {
+      text-align: center;
+      background: #ffffff;
+      padding: 1rem 0;
+      border: 1px solid #dce2ea;
+      border-radius: 6px;
+    }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .page-wrapper { flex-direction: column; }
-      .sidebar { position: relative; width: 100%; border-right: none; border-bottom: 1px solid #ddd; height: auto; }
-      .main-content { margin-left: 0; }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: none;
+      }
+      .sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .sidebar nav ul li {
+        margin: 0;
+      }
+      .sidebar a {
+        padding: 0.55rem 0.7rem;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 1rem;
+      }
     }
   </style>
 </head>
@@ -117,12 +222,11 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#news">News</a></li>
-          <li><a href="#education">Education</a></li>
           <li><a href="#publications">Publications</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#awards">Awards</a></li>
-          <li><a href="#miscellaneous">Misc</a></li> <!-- Changed label -->
           <li><a href="#service">Service</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#miscellaneous">Misc</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -141,32 +245,42 @@
           
           <div class="bio">
             <p>
-              I am a Ph.D. candidate at the University of Toronto luckily supervised by 
-              <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a>. My current research focuses on 
-              program execution with zero-knowledge proofs, 
-              as well as program analysis and synthesis on smart contracts. 
-              I maintain a broad interest in programming languages, 
-              software engineering, security, and cryptography.
+              I am visiting the <a href="https://ast.ethz.ch/the-group/group-members.html">Advanced Software Technologies Lab</a> at ETH Zurich,
+              hosted by <a href="https://people.inf.ethz.ch/suz/">Prof. Zhendong Su</a>. I am a Ph.D. candidate at the University of Toronto,
+              advised by <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a> in the
+              <a href="https://www.cs.toronto.edu/~prose/">PROSE Lab</a>.
             </p>
             <p>
-              I also worked as a part-time Research Engineer at 
-              <a href="https://www.zircuit.com/">Zircuit</a> on zkrollups and sequencer-level security, 
-              working with  
-              <a href="https://x.com/dr_zircuit">Dr. Z</a>-<a href="https://www.linkedin.com/in/mderka/">Dr. Martin Derka</a>.
-               and <a href="https://scholar.google.ca/citations?user=SmADsX8AAAAJ&hl=en">Dr. Jan Gorzny</a>.
-              Prior to that, I also worked at
-              <a href="https://quantstamp.com/team">Quantstamp</a> on smart contract auditing 
-              and automated vulnerability detection.
+              My research focuses on LLM security and, more recently, broader AI security. I have worked on
+              security problems in DeFi protocols, rollups, prediction markets, and runtime protection techniques.
+              More broadly, I have also collaborated on compilers, program analysis, and CUDA kernel generation.
             </p>
-            <p>
-              Earlier in my graduate studies, I was mentored by 
-              <a href="https://www.comp.nus.edu.sg/~umathur/">Prof. Umang Mathur</a> in the PLMW program. 
-              Prior to that, I was advised by 
-              <a href="https://web.eecs.umich.edu/~xwangsd/">Prof. Xinyu Wang</a> at the University of Michigan 
-              on several regular expression program synthesis projects, as well as by 
-              <a href="https://www.umtri.umich.edu/people/green-paul-a/">Prof. Paul A. Green</a> on 
-              driving simulator projects.
-            </p>
+            <details class="folded-section">
+              <summary>My Past Experience</summary>
+              <div class="experience-block">
+                <h4>Industry Experience</h4>
+                <p>
+                  I spent one year as a part-time Research Engineer at <a href="https://www.zircuit.com/">Zircuit</a>, working with
+                  <a href="https://x.com/dr_zircuit">Dr. Z</a>, <a href="https://www.linkedin.com/in/mderka/">Dr. Martin Derka</a>, and
+                  <a href="https://scholar.google.ca/citations?user=SmADsX8AAAAJ&hl=en">Dr. Jan Gorzny</a>. I joined the journey of building a highly complex zkrollup system from scratch and learned a great deal from wonderful colleagues and interesting people across the global Web3 community.
+                </p>
+                <p>
+                  Before that, I spent more than one year at <a href="https://quantstamp.com/team">Quantstamp</a>, where I worked with <a href="https://www.linkedin.com/in/mderka/">Dr. Martin Derka</a> on smart contract auditing and automated vulnerability detection. That experience was deeply formative because it was also where I joined the journey of bringing my FlashSyn research into industrial practice.
+                </p>
+              </div>
+              <div class="experience-block">
+                <h4>Mentors</h4>
+                <p>
+                  I am grateful to several mentors who shaped both my research taste and my growth.
+                  <a href="https://jiezhoucs.github.io/">Prof. Jie Zhou</a> has been giving me valuable advice on academic positions as I enter the later stage of my Ph.D.
+                  <a href="https://qingkaishi.github.io/">Prof. Qingkai Shi</a> introduced me to the broader PLSE community in Asia and the related industry.
+                  <a href="https://www.comp.nus.edu.sg/~umathur/">Prof. Umang Mathur</a> was my first mentor after undergrad and helped me transition from undergraduate study into graduate research.
+                  <a href="https://web.eecs.umich.edu/~xwangsd/">Prof. Xinyu Wang</a> introduced me to programming languages research, and we collaborated with
+                  <a href="https://www.cs.purdue.edu/people/faculty/tianyi.html">Prof. Tianyi Zhang</a> on my first published paper.
+                  <a href="https://www.umtri.umich.edu/people/green-paul-a/">Prof. Paul A. Green</a> first introduced me to the research world, where we finished my first research project on SIM.
+                </p>
+              </div>
+            </details>
             <p class="contact-links">
               <a href="mailto:zhiychen@cs.toronto.edu"><i class="fas fa-envelope icon"></i>Email</a> /
               <a href="https://github.com/jeffchen006/"><i class="fab fa-github icon"></i>Github</a> /
@@ -184,32 +298,250 @@
         <div class="container">
           <h2>News</h2>
           <article class="news-item">
-            <p><strong>Oct 2025:</strong> Our paper has been accepted to ICSE 2026—see you in Rio!</p>
+            <p><strong>May 2026:</strong> Very excited to share the great news that our paper "<em>Scam2Prompt: A Scalable Framework for Auditing Malicious Scam Endpoints in Production LLMs</em>" has been accepted to ICML 2026. See everyone in Seoul, South Korea! [<a href="https://x.com/zhiychen/status/2052531944022212901?s=20" target="_blank"><i class="fab fa-twitter icon"></i>Tweet</a>]</p>
           </article>
           <article class="news-item">
-            <p><strong>Oct 2025:</strong> Thrilled to attend OOPSLA 2025 for the Doctoral Symposium talk on “A Multi-Layer Dynamic Security Framework for DeFi Smart Contracts” and to serve as Session Chair coordinating the Sponsor Industry Forum.</p>
+            <p><strong>April 2026:</strong> Honored and deeply grateful to receive the Canada Graduate Research Scholarship – Doctoral. This journey has been shaped by many generous collaborators, mentors, and friends, and I am sincerely thankful for everyone who has supported, challenged, and believed in me along the way.</p>
           </article>
           <article class="news-item">
-            <p><strong>May 2025:</strong> Attended ICSE 2025 and was thrilled to present our paper on "<em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em>".</p>
+            <p><strong>April 2026:</strong> Attended ICSE 2026 and presented our paper "<em>Enforcing Control Flow Integrity on DeFi Smart Contracts</em>". The presentation recording is now available. [<a href="https://www.youtube.com/watch?v=leRHdMyEdfI" target="_blank"><i class="fab fa-youtube icon"></i>Video</a>]</p>
           </article>
-          <article class="news-item">
-            <p><strong>March 2025:</strong> Our paper "<em>Sequencer Level Security</em>" has been accepted as a poster at ICBC 2025! See you in Rome - this technique is one of the main innovations behind Zircuit.</p>
-          </article>
-          <article class="news-item">
-            <p><strong>March 2025:</strong> Attended ETH Denver as a hackathon judge and company booth presenter. Super excited to chat with industrial experts! [<a href="https://x.com/ZircuitL2/status/1896942196194263146"><i class="fab fa-twitter icon"></i>Tweet</a>]</p>
-          </article>
-          <article class="news-item">
-            <p><strong>March 2025:</strong> Attended SANER 2025 and was thrilled to present our paper on "<em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em>".</p>
-          </article>
-          <article class="news-item">
-            <p><strong>Feb 2025:</strong> Zircuit's roadmap for 2025 was released: two of my papers have been integrated and will be the focus. Read more: <a href="https://www.zircuit.com/blog/zircuit-technical-roadmap-part-ii-scaling-securely">Zircuit Technical Roadmap Part II: Scaling Securely</a></p>
-          </article>
-          <article class="news-item">
-            <p><strong>Jan 2025:</strong> Our paper "<em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em>" has been accepted for publication at SANER-IWBOSE 2025. See you in Montreal!</p>
-          </article>
-          <article class="news-item">
-            <p><strong>Dec 2024:</strong> Our paper "<em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em>" has been accepted for publication at ICSE-WETSEB 2025. See you in Ottawa!</p>
-          </article>
+          <details class="folded-section">
+            <summary>News Before 2026</summary>
+            <article class="news-item">
+              <p><strong>Oct 2025:</strong> Our paper "<em>Enforcing Control Flow Integrity on DeFi Smart Contracts</em>" has been accepted to ICSE 2026—see you in Rio!</p>
+            </article>
+            <article class="news-item">
+              <p><strong>Oct 2025:</strong> Thrilled to attend OOPSLA 2025 for the Doctoral Symposium talk on “A Multi-Layer Dynamic Security Framework for DeFi Smart Contracts” and to serve as Session Chair coordinating the Sponsor Industry Forum.</p>
+            </article>
+            <article class="news-item">
+              <p><strong>May 2025:</strong> Attended ICSE 2025 and was thrilled to present our paper on "<em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em>".</p>
+            </article>
+            <article class="news-item">
+              <p><strong>March 2025:</strong> Our paper "<em>Sequencer Level Security</em>" has been accepted as a poster at ICBC 2025! See you in Rome - this technique is one of the main innovations behind Zircuit.</p>
+            </article>
+            <article class="news-item">
+              <p><strong>March 2025:</strong> Attended ETH Denver as a hackathon judge and company booth presenter. Super excited to chat with industrial experts! [<a href="https://x.com/ZircuitL2/status/1896942196194263146"><i class="fab fa-twitter icon"></i>Tweet</a>]</p>
+            </article>
+            <article class="news-item">
+              <p><strong>March 2025:</strong> Attended SANER 2025 and was thrilled to present our paper on "<em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em>".</p>
+            </article>
+            <article class="news-item">
+              <p><strong>Feb 2025:</strong> Zircuit's roadmap for 2025 was released: two of my papers have been integrated and will be the focus. Read more: <a href="https://www.zircuit.com/blog/zircuit-technical-roadmap-part-ii-scaling-securely">Zircuit Technical Roadmap Part II: Scaling Securely</a></p>
+            </article>
+            <article class="news-item">
+              <p><strong>Jan 2025:</strong> Our paper "<em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em>" has been accepted for publication at SANER-IWBOSE 2025. See you in Montreal!</p>
+            </article>
+            <article class="news-item">
+              <p><strong>Dec 2024:</strong> Our paper "<em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em>" has been accepted for publication at ICSE-WETSEB 2025. See you in Ottawa!</p>
+            </article>
+          </details>
+        </div>
+      </section>
+
+      <!-- Publications Section -->
+      <section id="publications" class="section">
+        <div class="container">
+          <h2>Publications</h2>
+          <h3>Selected Publications</h3>
+
+          <div class="publication-item">
+            <p>
+              <strong>Zhiyang Chen</strong>, Tara Saba, Xun Deng, Xujie Si, Fan Long, “Scam2Prompt: A Scalable Framework for Auditing Malicious Scam Endpoints in Production LLMs”, International Conference on Machine Learning (ICML), 2026.
+            </p>
+            <p class="publication-links">
+              [<a href="https://scam2prompt.github.io" target="_blank"><i class="fas fa-globe icon"></i>project</a>]
+              [<a href="https://scam2prompt.github.io/assets/scam2prompt-preprint.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              [<a href="https://github.com/Scam2Prompt/Scam2Prompt" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+              [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><i class="fas fa-database icon"></i>dataset</a>]
+            </p>
+          </div>
+
+          <div class="publication-item">
+            <p>
+              <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Pasha Barahimi, Cyrus Minwalla, Han Du, Andreas Veneris, Fan Long, “Enforcing Control Flow Integrity on DeFi Smart Contracts”, International Conference on Software Engineering (ICSE), 2026.
+            </p>
+            <p class="publication-links">
+              [<a href="https://arxiv.org/pdf/2504.05509" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              [<a href="https://www.youtube.com/watch?v=leRHdMyEdfI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
+              [<a href="https://docs.google.com/presentation/d/1kV8m1mVwKfd4_nTT8ZKtk1ZqaxkRFskgjx9XfUt12lI/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+            </p>
+          </div>
+
+          <div class="publication-item">
+            <p>
+              <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “OpenTracer: A Dynamic Transaction Trace Analyzer for Smart Contract Invariant Generation and Beyond”  (ASE 2024 Tool Demonstrations).
+            </p>
+            <p class="publication-links">
+              [<a href="https://arxiv.org/pdf/2407.10039" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              [<a href="https://github.com/jeffchen006/OpenTracer" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+              [<a href="https://docs.google.com/presentation/d/1Yk7Y0bfB5W0gGtZlS6wFEOfOOKlgXSmasgPuoqhUj7Q/edit?usp=sharingr" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+              [<a href="https://www.youtube.com/watch?v=vTdmjWdYd30" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
+            </p>
+          </div>
+
+          <div class="publication-item">
+            <p>
+              <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “Demystifying Invariant Effectiveness for Securing Smart Contracts” (FSE 2024).
+            </p>
+            <p class="publication-links">
+              [<a href="pdfs/trace2inv-fse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              [<a href="https://arxiv.org/pdf/2404.14580.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
+              [<a href="https://github.com/jeffchen006/Trace2Inv-Artifact-FSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+              [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Benchmarks" target="_blank"><i class="fab fa-github icon"></i>benchmarks</a>]
+              [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Invariant-Study-FSE24" target="_blank"><i class="fab fa-github icon"></i>invariant study results</a>]
+              [<a href="https://docs.google.com/presentation/d/16phJQ7H_aOX01QDOme2_mceOUrVOIc4kfXcolijDlNE/edit#slide=id.p" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+              [<a href="https://docs.google.com/presentation/d/139etymRy-Xnq3e6jFXtxQbpixIquZO9aBbuMCg4rX7Q/edit?usp=sharing" target="_blank"><i class="fas fa-file-alt icon"></i>poster</a>]
+            </p>
+          </div>
+
+          <div class="publication-item">
+            <p>
+              <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Fan Long, “FlashSyn: Flash Loan Attack Synthesis via Counter Example Driven Approximation”  (ICSE 2024).
+            </p>
+            <p class="publication-links">
+              [<a href="pdfs/flashsyn-icse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              [<a href="https://arxiv.org/pdf/2206.10708.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
+              [<a href="https://github.com/FlashSyn-Artifact/FlashSyn-Artifact-ICSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+              [<a href="https://docs.google.com/presentation/d/1438qvhgIPhh39PQ-6oOEgG9lkPsuDI0Jo9hNRMxOe4U/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+            </p>
+          </div>
+
+          <div class="publication-item">
+            <p>
+              Tianyi Zhang, <strong>Zhiyang Chen</strong>, Yuanli Zhu, Priyan Vaithilingam, Xinyu Wang, Elena L. Glassman, “Interpretable Program Synthesis”, Proceedings of CHI 2021.
+            </p>
+            <p class="publication-links">
+              [<a href="pdfs/CHI2021.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              [<a href="https://www.youtube.com/watch?v=biUQi0GW6jc" target="_blank"><i class="fab fa-youtube icon"></i>preview</a>]
+              [<a href="https://www.youtube.com/watch?v=v5scz1bzQN8&ab_channel=ACMSIGCHI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
+              [<a href="https://github.com/tianyi-zhang/interactive-program-synthesis" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+            </p>
+          </div>
+
+          <details class="folded-section">
+            <summary>All Publications</summary>
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, Tara Saba, Xun Deng, Xujie Si, Fan Long, “Scam2Prompt: A Scalable Framework for Auditing Malicious Scam Endpoints in Production LLMs”, International Conference on Machine Learning (ICML), 2026.
+              </p>
+              <p class="publication-links">
+                [<a href="https://scam2prompt.github.io" target="_blank"><i class="fas fa-globe icon"></i>project</a>]
+                [<a href="https://scam2prompt.github.io/assets/scam2prompt-preprint.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://github.com/Scam2Prompt/Scam2Prompt" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+                [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><i class="fas fa-database icon"></i>dataset</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Pasha Barahimi, Cyrus Minwalla, Han Du, Andreas Veneris, Fan Long, “Enforcing Control Flow Integrity on DeFi Smart Contracts”, International Conference on Software Engineering (ICSE), 2026.
+              </p>
+              <p class="publication-links">
+                [<a href="https://arxiv.org/pdf/2504.05509" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://www.youtube.com/watch?v=leRHdMyEdfI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
+                [<a href="https://docs.google.com/presentation/d/1kV8m1mVwKfd4_nTT8ZKtk1ZqaxkRFskgjx9XfUt12lI/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                Jan Gorzny, <strong>Zhiyang Chen</strong>, Krzysztof Gogol, “Ethereum Layer Two Client Similarity: Geth”, SANER 2026 IWBOSE.
+              </p>
+              <p class="publication-links">
+                [<a href="https://www.youtube.com/watch?v=03vPlZSkGQY" target="_blank"><i class="fab fa-youtube icon"></i>presentation</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, “A Multi-Layer Dynamic Security Framework for DeFi Smart Contracts”, OOPSLA/SPLASH 2025 Doctoral Symposium.
+              </p>
+              <p class="publication-links">
+                [<a href="https://dl.acm.org/doi/pdf/10.1145/3758316.3762819" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                Martin Derka, Jan Gorzny, Diego Siqueira, Donato Pellegrino, Marius Guggenmos, <strong>Zhiyang Chen</strong>, “Sequencer Level Security”, IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2025 Poster).
+              </p>
+              <p class="publication-links">
+                [<a href="https://arxiv.org/pdf/2405.01819.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, Phillip Kemper, Yi Liu, Jan Gorzny, Diego Siqueira, Yuekang Li, Donato Pellegrino, and Martin Derka, “A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains”, 7th International Workshop on Emerging Trends in Software Engineering for Blockchain (ICSE-WETSEB 2025).
+              </p>
+              <p class="publication-links">
+                [<a href="pdfs/forking-ICSE25-WETSEB.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://docs.google.com/presentation/d/1F2A_BhhckNuAVwoIWbLu--pdJet9SVuJDSkxII47fpE/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, Jan Gorzny, Martin Derka, “Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security”, 8th International Workshop on Blockchain-Oriented Software Engineering (SANER-IWBOSE 2025).
+              </p>
+              <p class="publication-links">
+                [<a href="https://arxiv.org/pdf/2408.14621.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://docs.google.com/presentation/d/1XFTit5HP2ooUzCH0Sibv7VtGh_UNFGQrk66m6Uauflo/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “OpenTracer: A Dynamic Transaction Trace Analyzer for Smart Contract Invariant Generation and Beyond”  (ASE 2024 Tool Demonstrations).
+              </p>
+              <p class="publication-links">
+                [<a href="https://arxiv.org/pdf/2407.10039" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://github.com/jeffchen006/OpenTracer" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+                [<a href="https://docs.google.com/presentation/d/1Yk7Y0bfB5W0gGtZlS6wFEOfOOKlgXSmasgPuoqhUj7Q/edit?usp=sharingr" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+                [<a href="https://www.youtube.com/watch?v=vTdmjWdYd30" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “Demystifying Invariant Effectiveness for Securing Smart Contracts” (FSE 2024).
+              </p>
+              <p class="publication-links">
+                [<a href="pdfs/trace2inv-fse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://arxiv.org/pdf/2404.14580.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
+                [<a href="https://github.com/jeffchen006/Trace2Inv-Artifact-FSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+                [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Benchmarks" target="_blank"><i class="fab fa-github icon"></i>benchmarks</a>]
+                [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Invariant-Study-FSE24" target="_blank"><i class="fab fa-github icon"></i>invariant study results</a>]
+                [<a href="https://docs.google.com/presentation/d/16phJQ7H_aOX01QDOme2_mceOUrVOIc4kfXcolijDlNE/edit#slide=id.p" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+                [<a href="https://docs.google.com/presentation/d/139etymRy-Xnq3e6jFXtxQbpixIquZO9aBbuMCg4rX7Q/edit?usp=sharing" target="_blank"><i class="fas fa-file-alt icon"></i>poster</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Fan Long, “FlashSyn: Flash Loan Attack Synthesis via Counter Example Driven Approximation”  (ICSE 2024).
+              </p>
+              <p class="publication-links">
+                [<a href="pdfs/flashsyn-icse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://arxiv.org/pdf/2206.10708.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
+                [<a href="https://github.com/FlashSyn-Artifact/FlashSyn-Artifact-ICSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+                [<a href="https://docs.google.com/presentation/d/1438qvhgIPhh39PQ-6oOEgG9lkPsuDI0Jo9hNRMxOe4U/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+              </p>
+            </div>
+
+            <div class="publication-item">
+              <p>
+                Tianyi Zhang, <strong>Zhiyang Chen</strong>, Yuanli Zhu, Priyan Vaithilingam, Xinyu Wang, Elena L. Glassman, “Interpretable Program Synthesis”, Proceedings of CHI 2021.
+              </p>
+              <p class="publication-links">
+                [<a href="pdfs/CHI2021.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://www.youtube.com/watch?v=biUQi0GW6jc" target="_blank"><i class="fab fa-youtube icon"></i>preview</a>]
+                [<a href="https://www.youtube.com/watch?v=v5scz1bzQN8&ab_channel=ACMSIGCHI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
+                [<a href="https://github.com/tianyi-zhang/interactive-program-synthesis" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
+              </p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -234,106 +566,12 @@
         </div>
       </section>
 
-      <!-- Publications Section -->
-      <section id="publications" class="section">
-        <div class="container">
-          <h2>Publications</h2>
-          <h3>Academia</h3>
-
-
-          
-          <div class="publication-item">
-            <p>
-              <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Pasha Barahimi, Cyrus Minwalla, Han Du, Andreas Veneris, Fan Long, “Secure Smart Contract with Control Flow Integrity”, International Conference on Software Engineering (ICSE), 2026.
-            </p>
-            <p>
-              [<a href="https://arxiv.org/pdf/2504.05509" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-            </p>
-          </div>
-
-          <div class="publication-item">
-            <p>
-              <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “OpenTracer: A Dynamic Transaction Trace Analyzer for Smart Contract Invariant Generation and Beyond”  (ASE 2024 Tool Demonstrations)
-            </p>
-            <p>
-              [<a href="https://arxiv.org/pdf/2407.10039" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-              [<a href="https://github.com/jeffchen006/OpenTracer" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-              [<a href="https://docs.google.com/presentation/d/1Yk7Y0bfB5W0gGtZlS6wFEOfOOKlgXSmasgPuoqhUj7Q/edit?usp=sharingr" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-              [<a href="https://www.youtube.com/watch?v=vTdmjWdYd30" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
-            </p>
-          </div>
-          <div class="publication-item">
-            <p>
-              <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “Demystifying Invariant Effectiveness for Securing Smart Contracts” (FSE 2024)
-            </p>
-            <p>
-              [<a href="pdfs/trace2inv-fse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-              [<a href="https://arxiv.org/pdf/2404.14580.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
-              [<a href="https://github.com/jeffchen006/Trace2Inv-Artifact-FSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-              [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Benchmarks" target="_blank"><i class="fab fa-github icon"></i>benchmarks</a>]
-              [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Invariant-Study-FSE24" target="_blank"><i class="fab fa-github icon"></i>invariant study results</a>]
-              [<a href="https://docs.google.com/presentation/d/16phJQ7H_aOX01QDOme2_mceOUrVOIc4kfXcolijDlNE/edit#slide=id.p" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-              [<a href="https://docs.google.com/presentation/d/139etymRy-Xnq3e6jFXtxQbpixIquZO9aBbuMCg4rX7Q/edit?usp=sharing" target="_blank"><i class="fas fa-file-alt icon"></i>poster</a>]
-            </p>
-          </div>
-          <div class="publication-item">
-            <p>
-              <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Fan Long, “FlashSyn: Flash Loan Attack Synthesis via Counter Example Driven Approximation”  (ICSE 2024)
-            </p>
-            <p>
-              [<a href="pdfs/flashsyn-icse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-              [<a href="https://arxiv.org/pdf/2206.10708.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
-              [<a href="https://github.com/FlashSyn-Artifact/FlashSyn-Artifact-ICSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-              [<a href="https://docs.google.com/presentation/d/1438qvhgIPhh39PQ-6oOEgG9lkPsuDI0Jo9hNRMxOe4U/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-            </p>
-          </div>
-          <div class="publication-item">
-            <p>
-              Tianyi Zhang, <strong>Zhiyang Chen</strong>, Yuanli Zhu, Priyan Vaithilingam, Xinyu Wang, Elena L. Glassman, “Interpretable Program Synthesis”, Proceedings of CHI 2021
-            </p>
-            <p>
-              [<a href="pdfs/CHI2021.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-              [<a href="https://www.youtube.com/watch?v=biUQi0GW6jc" target="_blank"><i class="fab fa-youtube icon"></i>preview</a>]
-              [<a href="https://www.youtube.com/watch?v=v5scz1bzQN8&ab_channel=ACMSIGCHI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
-              [<a href="https://github.com/tianyi-zhang/interactive-program-synthesis" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-            </p>
-          </div>
-
-          <h3>Industry</h3>
-          <div class="publication-item">
-            <p>
-              Martin Derka, Jan Gorzny, Diego Siqueira, Donato Pellegrino, Marius Guggenmos, <strong>Zhiyang Chen</strong>, “Sequencer Level Security”, IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2025 Poster)
-            </p>
-            <p>
-              [<a href="https://arxiv.org/pdf/2405.01819.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-            </p>
-          </div>
-          <div class="publication-item">
-            <p>
-              <strong>Zhiyang Chen</strong>, Phillip Kemper, Yi Liu, Jan Gorzny, Diego Siqueira, Yuekang Li, Donato Pellegrino, and Martin Derka, “A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains”, 7th International Workshop on Emerging Trends in Software Engineering for Blockchain (ICSE-WETSEB 2025)
-            </p>
-            <p>
-              [<a href="pdfs/forking-ICSE25-WETSEB.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-              [<a href="https://docs.google.com/presentation/d/1F2A_BhhckNuAVwoIWbLu--pdJet9SVuJDSkxII47fpE/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-            </p>
-          </div>
-          <div class="publication-item">
-            <p>
-              <strong>Zhiyang Chen</strong>, Jan Gorzny, Martin Derka, “Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security”, 8th International Workshop on Blockchain-Oriented Software Engineering (SANER-IWBOSE 2025)
-            </p>
-            <p>
-              [<a href="https://arxiv.org/pdf/2408.14621.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-              [<a href="https://docs.google.com/presentation/d/1XFTit5HP2ooUzCH0Sibv7VtGh_UNFGQrk66m6Uauflo/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-            </p>
-          </div>
-        </div>
-      </section>
-
       <!-- Awards Section -->
       <section id="awards" class="section">
         <div class="container">
           <h2>Awards &amp; Grants</h2>
           <ul>
+            <li>Canada Graduate Research Scholarship – Doctoral, 2026</li>
             <li>ACM SIGSOFT CAPS Travel Grant, ACM SIGSOFT CAPS, 2024</li>
             <li>DCS Travel Grant, University of Toronto, 2024</li>
             <li>Bell Graduate Scholarship, 2024</li>
@@ -412,26 +650,24 @@
         <div class="container">
           <h2>Miscellaneous</h2>
           <ul>
-            <li><em>Update (2025/03): I roughly discovered my current research taste - “dig deep enough, the novelty just comes out naturally.”</em></li>
-            <li><em>My signature tagline: “I'm a dreamer, but I'm also practical enough to version control it.”</em></li>
-            <li><em>I volunteer at the <a href="https://www.torontocatrescue.ca/" target="_blank">Toronto Cat Rescue</a>, where I help foster cats at home, 2025</em></li>
+            <li>
+              <details>
+                <summary><em><strong>Update (2026/04)</strong> My research taste remains problem-driven, but I now believe impactful research draws insight from the ground up, then abstracts and generalizes solutions to broader domains. Older notes: <a href="#note-2025-10">2025/10</a>, <a href="#note-2025-03">2025/03</a>, <a href="#note-2024-08">2024/08</a>.</em></summary>
+                <em id="note-2025-10">(2025/10)I now see philosophy as a way to understand ourselves and the world, and what excites me most is turning that insight into changes; engineering and science share that mission and can even reshape who we are and how the world works.</em><br>
+                <em id="note-2025-03">(2025/03): I roughly discovered my current research taste - “dig deep enough, the novelty just comes out naturally.”</em><br>
+                <em id="note-2024-08">(2024/08) I started investigating the 'philosophy' in my Doctor of Philosophy program.</em>
+              </details>
+            </li>
+            <li><em>Favorite tagline: “I'm a dreamer, but I'm also practical enough to version control it.”</em></li>
 
             <li><em>Pirates of the Caribbean is my favorite movie. I try to learn how to become a <a href="https://www.youtube.com/watch?v=T0fAznO1wA8">Pirate.</a></em></li>
             <li><em>I'm not religious, but I'm an <a href="https://www.youtube.com/watch?v=0AtTM9hgCDw&t=1s" target="_blank">afterlife</a> believer: people will either reunite with their deceased loved ones in another world or return back to this world in another form.</em></li>
 
             <li>
               <details>
-                <summary><em>Former volunteer at the <a href="https://fyfb.com/" target="_blank">Toronto Fort York Food Bank</a></em></summary>
-                <em>I previously helped distribute free food to people in trouble (2024-2025) and am no longer active on this duty.</em>
-              </details>
-            </li>
-            <li>
-              <details>
-                <summary><em>(2024/08) I started investigating the 'philosophy' in my Doctor of Philosophy program.</em></summary>
-                <em>(2025/10)I now see philosophy as a way to understand ourselves and the world, and 
-                  what excites me most is turning that insight into changes; 
-                  engineering and science share that mission and can even reshape who 
-                  we are and how the world works.</em>
+                <summary><em>Former volunteer experiences with Toronto-based charities</em></summary>
+                <em><a href="https://www.torontocatrescue.ca/" target="_blank">Toronto Cat Rescue</a>: I helped foster cats at home in 2025.</em><br>
+                <em><a href="https://fyfb.com/" target="_blank">Toronto Fort York Food Bank</a>: I helped distribute free food to people in need from 2024 to 2025.</em>
               </details>
             </li>
 
@@ -442,7 +678,7 @@
       <!-- Projects Section -->
       <section id="projects" class="section">
         <div class="container">
-          <h2>Finished Undergraduate Research Projects</h2>
+          <h2>Earlier Undergraduate Research Projects</h2>
           <details>
             <summary style="cursor: pointer; font-weight: bold; margin-bottom: 1rem;">Click to Expand Projects</summary>
             <div class="project-item">
@@ -482,6 +718,7 @@
       <!-- Footer / Contact -->
       <footer id="contact">
         <div class="container">
+          <p>Contact: <a href="mailto:zhiychen@cs.toronto.edu">zhiychen@cs.toronto.edu</a></p>
           <p>© 2025 Zhiyang Chen</p>
         </div>
       </footer>

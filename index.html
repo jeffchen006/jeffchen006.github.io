@@ -4,221 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zhiyang Chen</title>
-  <link rel="icon" type="image/png" href="images/seal_icon.png">
-  <!-- Font Awesome for icons -->
+  <meta name="description" content="Zhiyang Chen — Ph.D. candidate at the University of Toronto researching LLM security and blockchain security.">
+  <link rel="icon" type="image/jpeg" href="images/me.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <style>
-    /* Reset & Basic Styles */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #eef1f5;
-      color: #242933;
-    }
-    a { color: #007acc; text-decoration: underline; }
-    a:hover { text-decoration: none; }
-
-    /* Container for centralized content with padding */
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    
-    /* Page Layout with Fixed Sidebar Navigation */
-    .page-wrapper {
-      display: flex;
-      min-height: 100vh;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 196px;
-      height: 100vh;
-      background: #111722;
-      padding: 6.5rem 0.85rem 1.25rem;
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 8px 0 24px rgba(20, 25, 35, 0.1);
-      overflow-y: auto;
-    }
-    .sidebar nav ul {
-      list-style: none;
-      padding: 0;
-    }
-    .sidebar nav ul li {
-      margin: 0.12rem 0;
-    }
-    .sidebar a {
-      color: #c8d2e3;
-      display: block;
-      font-size: 0.94rem;
-      font-weight: 600;
-      letter-spacing: 0;
-      padding: 0.58rem 0.7rem;
-      border-left: 3px solid transparent;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    }
-    .sidebar a:hover,
-    .sidebar a:focus {
-      background: rgba(255, 255, 255, 0.07);
-      border-left-color: #6ca6ff;
-      color: #ffffff;
-      outline: none;
-    }
-    .main-content {
-      flex: 1;
-      margin-left: 196px;
-      padding: 1.5rem 2rem 2rem;
-      min-width: 0;
-    }
-
-    /* Header */
-    header {
-      background: #ffffff;
-      padding: 1rem 0;
-      border-bottom: 1px solid #dce2ea;
-      box-shadow: 0 1px 8px rgba(20, 25, 35, 0.06);
-      position: relative;
-      z-index: 2;
-    }
-    header h1 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
-
-    /* Section Styling */
-    .section {
-      background: #ffffff;
-      margin: 0 0 1.25rem;
-      padding: 1.25rem;
-      border: 1px solid #dce2ea;
-      border-radius: 6px;
-      box-shadow: 0 8px 24px rgba(20, 25, 35, 0.06);
-    }
-    .section h2 {
-      margin-bottom: 0.75rem;
-      border-bottom: 2px solid #243244;
-      padding-bottom: 0.5rem;
-      color: #182131;
-    }
-
-    /* About Section */
-    #about { display: flex; flex-wrap: wrap; align-items: center; }
-    #about .profile { flex: 1 1 250px; text-align: center; padding: 1rem; }
-    #about .profile img { width: 100%; max-width: 250px; border-radius: 50%; }
-    #about .bio { flex: 2 1 300px; padding: 1rem; }
-    .bio-subheading { margin-top: 1rem; }
-    .bio details.folded-section {
-      margin-top: 1rem;
-    }
-    .experience-block {
-      margin-top: 0.9rem;
-      padding-top: 0.9rem;
-      border-top: 1px solid #dce2ea;
-    }
-    .experience-block:first-of-type {
-      border-top: none;
-      padding-top: 0;
-    }
-    .experience-block h4 {
-      color: #182131;
-      font-size: 1rem;
-      margin-bottom: 0.45rem;
-    }
-    .contact-links { margin-top: 1rem; text-align: center; }
-    .contact-links a { margin: 0 0.5rem; }
-
-    /* Article Styling */
-    article { margin-bottom: 1rem; }
-    article h3 { margin-bottom: 0.25rem; }
-
-    /* Publication Items (Links on New Line) */
-    .publication-item { margin: 1rem 0; }
-    .publication-item p { margin-bottom: 0.5rem; }
-    .folded-section {
-      margin-top: 1rem;
-      padding: 0.85rem 1rem;
-      border: 1px solid #dce2ea;
-      border-radius: 6px;
-      background: #f7f9fc;
-    }
-    .folded-section summary {
-      cursor: pointer;
-      color: #182131;
-      font-weight: 700;
-    }
-    .folded-section[open] summary {
-      margin-bottom: 0.75rem;
-    }
-    .publication-links a {
-      display: inline-block;
-      margin-right: 0.45rem;
-      white-space: nowrap;
-    }
-    
-    /* Utility classes for icon spacing */
-    .icon { margin-right: 0.3rem; }
-
-    /* Project Items (Undergraduate Research Projects) */
-    .project-item { display: flex; margin: 1rem 0; align-items: flex-start; }
-    .project-item img { max-width: 200px; margin-right: 1rem; }
-    .project-details h3 { margin-top: 0; }
-
-    /* Services and Teaching */
-    .subsection { margin-bottom: 1rem; }
-    .subsection h3 { border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      background: #ffffff;
-      padding: 1rem 0;
-      border: 1px solid #dce2ea;
-      border-radius: 6px;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .page-wrapper { flex-direction: column; }
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 1rem;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: none;
-      }
-      .sidebar nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35rem;
-      }
-      .sidebar nav ul li {
-        margin: 0;
-      }
-      .sidebar a {
-        padding: 0.55rem 0.7rem;
-      }
-      .main-content {
-        margin-left: 0;
-        padding: 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Zhiyang Chen</h1>
-    </div>
-  </header>
-
-  <div class="page-wrapper">
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar sticky">
-      <nav>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="site-brand" href="#about">Zhiyang Chen</a>
+      <nav aria-label="Primary navigation">
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#news">News</a></li>
@@ -230,20 +25,20 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-    </aside>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <div class="main-content">
-
-
-     <!-- About Section with name above profile picture -->
+  <main>
+      <!-- About Section -->
       <section id="about" class="section">
         <div class="container">
           <div class="profile">
             <img src="images/me.jpg" alt="Profile Photo">
           </div>
-          
+
           <div class="bio">
+            <p class="eyebrow">Ph.D. Candidate · University of Toronto</p>
+            <h1>Zhiyang Chen</h1>
             <p>
               I am visiting the <a href="https://ast.ethz.ch/the-group/group-members.html">Advanced Software Technologies Lab</a> at ETH Zurich,
               hosted by <a href="https://people.inf.ethz.ch/suz/">Prof. Zhendong Su</a>. I am a Ph.D. candidate at the University of Toronto,
@@ -298,42 +93,58 @@
         <div class="container">
           <h2>News</h2>
           <article class="news-item">
-            <p><strong>May 2026:</strong> Very excited to share the great news that our paper "<em>Scam2Prompt: A Scalable Framework for Auditing Malicious Scam Endpoints in Production LLMs</em>" has been accepted to ICML 2026. See everyone in Seoul, South Korea! [<a href="https://x.com/zhiychen/status/2052531944022212901?s=20" target="_blank"><i class="fab fa-twitter icon"></i>Tweet</a>]</p>
+            <time datetime="2026-05">May 2026</time>
+            <p>Very excited to share the great news that our paper "<a href="https://openreview.net/forum?id=jEQQBE30m1" target="_blank"><em>Scam2Prompt: A Scalable Framework for Auditing Malicious Scam Endpoints in Production LLMs</em></a>" has been accepted to ICML 2026. See everyone in Seoul, South Korea! <a href="https://x.com/zhiychen/status/2052531944022212901?s=20" target="_blank"><i class="fab fa-twitter icon"></i>Tweet</a></p>
           </article>
           <article class="news-item">
-            <p><strong>April 2026:</strong> Honored and deeply grateful to receive the Canada Graduate Research Scholarship – Doctoral. This journey has been shaped by many generous collaborators, mentors, and friends, and I am sincerely thankful for everyone who has supported, challenged, and believed in me along the way.</p>
+            <time datetime="2026-04">April 2026</time>
+            <p>Honored and deeply grateful to receive the Canada Graduate Research Scholarship – Doctoral. This journey has been shaped by many generous collaborators, mentors, and friends, and I am sincerely thankful for everyone who has supported, challenged, and believed in me along the way.</p>
           </article>
           <article class="news-item">
-            <p><strong>April 2026:</strong> Attended ICSE 2026 and presented our paper "<em>Enforcing Control Flow Integrity on DeFi Smart Contracts</em>". The presentation recording is now available. [<a href="https://www.youtube.com/watch?v=leRHdMyEdfI" target="_blank"><i class="fab fa-youtube icon"></i>Video</a>]</p>
+            <time datetime="2026-04">April 2026</time>
+            <p>Attended ICSE 2026 and presented our paper "<a href="https://conf.researchr.org/details/icse-2026/icse-2026-research-track/224/Enforcing-Control-Flow-Integrity-on-DeFi-Smart-Contracts" target="_blank"><em>Enforcing Control Flow Integrity on DeFi Smart Contracts</em></a>". The presentation recording is now available. <a href="https://www.youtube.com/watch?v=leRHdMyEdfI" target="_blank"><i class="fab fa-youtube icon"></i>Video</a></p>
           </article>
           <details class="folded-section">
             <summary>News Before 2026</summary>
             <article class="news-item">
-              <p><strong>Oct 2025:</strong> Our paper "<em>Enforcing Control Flow Integrity on DeFi Smart Contracts</em>" has been accepted to ICSE 2026—see you in Rio!</p>
+              <time datetime="2025-10">October 2025</time>
+              <p>Our paper "<a href="https://conf.researchr.org/details/icse-2026/icse-2026-research-track/224/Enforcing-Control-Flow-Integrity-on-DeFi-Smart-Contracts" target="_blank"><em>Enforcing Control Flow Integrity on DeFi Smart Contracts</em></a>" has been accepted to ICSE 2026—see you in Rio!</p>
             </article>
             <article class="news-item">
-              <p><strong>Oct 2025:</strong> Thrilled to attend OOPSLA 2025 for the Doctoral Symposium talk on “A Multi-Layer Dynamic Security Framework for DeFi Smart Contracts” and to serve as Session Chair coordinating the Sponsor Industry Forum.</p>
+              <time datetime="2025-10">October 2025</time>
+              <p>Thrilled to attend OOPSLA 2025 for the Doctoral Symposium talk on “<a href="https://doi.org/10.1145/3758316.3762819" target="_blank">A Multi-Layer Dynamic Security Framework for DeFi Smart Contracts</a>” and to serve as Session Chair coordinating the Sponsor Industry Forum.</p>
             </article>
             <article class="news-item">
-              <p><strong>May 2025:</strong> Attended ICSE 2025 and was thrilled to present our paper on "<em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em>".</p>
+              <time datetime="2025-05">May 2025</time>
+              <p>Attended ICSE 2025 and was thrilled to present our paper on "<a href="https://doi.org/10.1109/WETSEB66605.2025.00014" target="_blank"><em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em></a>".</p>
             </article>
             <article class="news-item">
-              <p><strong>March 2025:</strong> Our paper "<em>Sequencer Level Security</em>" has been accepted as a poster at ICBC 2025! See you in Rome - this technique is one of the main innovations behind Zircuit.</p>
+              <time datetime="2025-03">March 2025</time>
+              <p>Our paper "<a href="https://doi.org/10.1109/ICBC64466.2025.11114577" target="_blank"><em>Sequencer Level Security</em></a>" has been accepted as a poster at ICBC 2025! See you in Rome - this technique is one of the main innovations behind <a href="https://www.zircuit.com/" target="_blank">Zircuit</a>.</p>
             </article>
             <article class="news-item">
-              <p><strong>March 2025:</strong> Attended ETH Denver as a hackathon judge and company booth presenter. Super excited to chat with industrial experts! [<a href="https://x.com/ZircuitL2/status/1896942196194263146"><i class="fab fa-twitter icon"></i>Tweet</a>]</p>
+              <time datetime="2025-03">March 2025</time>
+              <p>Attended ETH Denver as a hackathon judge and company booth presenter. Super excited to chat with industrial experts! <a href="https://x.com/ZircuitL2/status/1896942196194263146"><i class="fab fa-twitter icon"></i>Tweet</a></p>
             </article>
             <article class="news-item">
-              <p><strong>March 2025:</strong> Attended SANER 2025 and was thrilled to present our paper on "<em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em>".</p>
+              <time datetime="2025-03">March 2025</time>
+              <p>Attended SANER 2025 and was thrilled to present our paper on "<a href="https://doi.org/10.1109/SANER-C66551.2025.00022" target="_blank"><em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em></a>".</p>
             </article>
             <article class="news-item">
-              <p><strong>Feb 2025:</strong> Zircuit's roadmap for 2025 was released: two of my papers have been integrated and will be the focus. Read more: <a href="https://www.zircuit.com/blog/zircuit-technical-roadmap-part-ii-scaling-securely">Zircuit Technical Roadmap Part II: Scaling Securely</a></p>
+              <time datetime="2025-02">February 2025</time>
+              <p>Zircuit's roadmap for 2025 was released: two of my papers have been integrated and will be the focus. Read more: <a href="https://www.zircuit.com/blog/zircuit-technical-roadmap-part-ii-scaling-securely">Zircuit Technical Roadmap Part II: Scaling Securely</a></p>
             </article>
             <article class="news-item">
-              <p><strong>Jan 2025:</strong> Our paper "<em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em>" has been accepted for publication at SANER-IWBOSE 2025. See you in Montreal!</p>
+              <time datetime="2025-01">January 2025</time>
+              <p>Our paper "<a href="https://doi.org/10.1109/SANER-C66551.2025.00022" target="_blank"><em>Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security</em></a>" has been accepted for publication at SANER-IWBOSE 2025. See you in Montreal!</p>
             </article>
             <article class="news-item">
-              <p><strong>Dec 2024:</strong> Our paper "<em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em>" has been accepted for publication at ICSE-WETSEB 2025. See you in Ottawa!</p>
+              <time datetime="2024-12">December 2024</time>
+              <p>Our paper "<a href="https://doi.org/10.1109/WETSEB66605.2025.00014" target="_blank"><em>A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains</em></a>" has been accepted for publication at ICSE-WETSEB 2025. See you in Ottawa!</p>
+            </article>
+            <article class="news-item">
+              <time datetime="2023-08">August 2023</time>
+              <p>Our tool <a href="https://doi.org/10.1145/3597503.3639190" target="_blank"><em>FlashSyn</em></a> was adopted by <a href="https://quantstamp.com/economic-exploits" target="_blank">Quantstamp</a> as part of its Economic Exploit Analysis service. <a href="https://www.coindesk.com/tech/2023/08/23/blockchain-security-firm-quantstamp-hopes-to-battle-flash-loan-attacks-with-new-service" target="_blank">CoinDesk</a> · <a href="https://www.theblock.co/post/246956/quantstamp-tool-to-thwart-defi-flash-loan-attacks" target="_blank">The Block</a></p>
             </article>
           </details>
         </div>
@@ -352,8 +163,10 @@
             <p class="publication-links">
               [<a href="https://scam2prompt.github.io" target="_blank"><i class="fas fa-globe icon"></i>project</a>]
               [<a href="https://scam2prompt.github.io/assets/scam2prompt-preprint.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+              [<a href="https://openreview.net/forum?id=jEQQBE30m1" target="_blank"><i class="fas fa-comments icon"></i>OpenReview</a>]
+              [<a href="https://icml.cc/virtual/2026/poster/62158" target="_blank"><i class="fas fa-image icon"></i>ICML Poster</a>]
               [<a href="https://github.com/Scam2Prompt/Scam2Prompt" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-              [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><i class="fas fa-database icon"></i>dataset</a>]
+              [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><span class="icon" aria-hidden="true">🤗</span>dataset</a>]
             </p>
           </div>
 
@@ -428,8 +241,10 @@
               <p class="publication-links">
                 [<a href="https://scam2prompt.github.io" target="_blank"><i class="fas fa-globe icon"></i>project</a>]
                 [<a href="https://scam2prompt.github.io/assets/scam2prompt-preprint.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://openreview.net/forum?id=jEQQBE30m1" target="_blank"><i class="fas fa-comments icon"></i>OpenReview</a>]
+                [<a href="https://icml.cc/virtual/2026/poster/62158" target="_blank"><i class="fas fa-image icon"></i>ICML Poster</a>]
                 [<a href="https://github.com/Scam2Prompt/Scam2Prompt" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-                [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><i class="fas fa-database icon"></i>dataset</a>]
+                [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><span class="icon" aria-hidden="true">🤗</span>dataset</a>]
               </p>
             </div>
 
@@ -551,8 +366,13 @@
           <h2>Education</h2>
           <article>
             <h3>University of Toronto</h3>
-            <p>PhD in Computer Science, 2026 (Expected)</p>
+            <p>PhD in Computer Science, 2027 (Expected)</p>
             <p>Advisor: <a href="https://www.cs.toronto.edu/~fanl/">Prof. Fan Long</a></p>
+          </article>
+          <article>
+            <h3>ETH Zurich</h3>
+            <p>Visiting ETH Zurich, May 2026 - Jan 2027</p>
+            <p>Host: <a href="https://people.inf.ethz.ch/suz/">Prof. Zhendong Su</a></p>
           </article>
           <article>
             <h3>University of Michigan, Ann Arbor</h3>
@@ -577,7 +397,7 @@
             <li>Bell Graduate Scholarship, 2024</li>
             <li>Mitacs Accelerate Fellowship with Bank of Canada, 2023-2024</li>
             <li>Co-author of Ethereum Foundation Grant FY23-0882 (<a href="https://github.com/quantstamp/l2-block-explorer-api" target="_blank"><i class="fab fa-github icon"></i>Back-End API Standard for L2 Block Explorers</a>), 2023</li>
-            <li>Smart Contract Research Forum Grant, 2022 </li> 
+            <li>Smart Contract Research Forum Grant, 2022</li>
             <li>The Wolfond Scholarship in Wireless Information Technology, 2021</li>
             <li>Outstanding graduate of Shanghai Jiao Tong University, 2021</li>
             <li>James B. Angell Scholar, UMich, 2021</li>
@@ -595,13 +415,13 @@
     <div class="subsection">
       <h3>Paper Review Services</h3>
       <ul>
-        <li>Shadow PC member, International Conference on Software Engineering(ICSE 2026) <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Reviewer, Automated Software Engineering (Springer) <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Reviewer, IEEE Transactions on Software Engineering (TSE) <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Reviewer, ACM Transactions on Software Engineering and Methodology (TOSEM) <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Junior PC Member, The Mining Software Repositories (MSR) <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Reviewer, IEEE Transactions on Network and Service Management (TNSM) <span style="float:right; font-style: italic;">2024, 2025</span></li>
-        <li>Sub-reviewer, FSE 2023, ICSE 2024, ASE 2024 <span style="float:right; font-style: italic;">2022–2023</span></li>
+        <li>Shadow PC member, International Conference on Software Engineering(ICSE 2026) <span class="item-year">2025</span></li>
+        <li>Reviewer, Automated Software Engineering (Springer) <span class="item-year">2025</span></li>
+        <li>Reviewer, IEEE Transactions on Software Engineering (TSE) <span class="item-year">2025</span></li>
+        <li>Reviewer, ACM Transactions on Software Engineering and Methodology (TOSEM) <span class="item-year">2025</span></li>
+        <li>Junior PC Member, The Mining Software Repositories (MSR) <span class="item-year">2025</span></li>
+        <li>Reviewer, IEEE Transactions on Network and Service Management (TNSM) <span class="item-year">2024, 2025</span></li>
+        <li>Sub-reviewer, FSE 2023, ICSE 2024, ASE 2024 <span class="item-year">2022–2023</span></li>
       </ul>
     </div>
 
@@ -609,10 +429,10 @@
     <div class="subsection">
       <h3>Artifact Evaluation Services</h3>
       <ul>
-        <li>Artifact Evaluation PC Member, SOSP 2025 <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Artifact Evaluation PC Member, CAV 2025 <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Artifact Evaluation PC Member, ICSE 2025 <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Artifact Evaluation PC Member, PLDI 2024 <span style="float:right; font-style: italic;">2024</span></li>
+        <li>Artifact Evaluation PC Member, SOSP 2025 <span class="item-year">2025</span></li>
+        <li>Artifact Evaluation PC Member, CAV 2025 <span class="item-year">2025</span></li>
+        <li>Artifact Evaluation PC Member, ICSE 2025 <span class="item-year">2025</span></li>
+        <li>Artifact Evaluation PC Member, PLDI 2024 <span class="item-year">2024</span></li>
       </ul>
     </div>
 
@@ -620,10 +440,10 @@
     <div class="subsection">
       <h3>Other Service Roles</h3>
       <ul>
-        <li>Session Chair, Sponsor Industry Forum @ ICFP/SPLASH 2025, Singapore <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Hackathon Judge, ETHDenver, Denver, Colorado, United States <span style="float:right; font-style: italic;">2025</span></li>
-        <li>Student Volunteer (Remote), OOPSLA 2022 <span style="float:right; font-style: italic;">2022</span></li>
-        <li>Tau Beta Phi–Michigan Gamma, elected Nov 2020 (K–12 &amp; professional activities) <span style="float:right; font-style: italic;">2020</span></li>
+        <li>Session Chair, Sponsor Industry Forum @ ICFP/SPLASH 2025, Singapore <span class="item-year">2025</span></li>
+        <li>Hackathon Judge, ETHDenver, Denver, Colorado, United States <span class="item-year">2025</span></li>
+        <li>Student Volunteer (Remote), OOPSLA 2022 <span class="item-year">2022</span></li>
+        <li>Tau Beta Phi–Michigan Gamma, elected Nov 2020 (K–12 &amp; professional activities) <span class="item-year">2020</span></li>
       </ul>
     </div>
 
@@ -631,13 +451,13 @@
     <div class="subsection">
       <h3>Teaching</h3>
       <ul>
-        <li>TA of CSC2125: Topics in Software Engineering: Blockchain Technology & Engineering, UofT <span style="float:right; font-style: italic;">Fall 2025</span></li>
-        <li>Head TA of CSC488/2107: Compilers and Interpreters, UofT <span style="float:right; font-style: italic;">Winter 2023</span></li>
-        <li>TA of CSC373: Algorithm Design, Analysis &amp; Complexity, UofT <span style="float:right; font-style: italic;">Fall 2022</span></li>
-        <li>TA of CSC263: Data Structures and Analysis, UofT <span style="float:right; font-style: italic;">Winter 2022</span></li>
-        <li>TA of CSC108: Introduction to Computer Programming, UofT <span style="float:right; font-style: italic;">Fall 2021</span></li>
-        <li>Grader of MATH 450 Advanced Mathematics for Engineers I, UMich <span style="float:right; font-style: italic;">Winter 2021</span></li>
-        <li>Grader of MATH 214 Linear Algebra, UMich <span style="float:right; font-style: italic;">Fall 2020</span></li>
+        <li>TA of CSC2125: Topics in Software Engineering: Blockchain Technology &amp; Engineering, UofT <span class="item-year">Fall 2025</span></li>
+        <li>Head TA of CSC488/2107: Compilers and Interpreters, UofT <span class="item-year">Winter 2023</span></li>
+        <li>TA of CSC373: Algorithm Design, Analysis &amp; Complexity, UofT <span class="item-year">Fall 2022</span></li>
+        <li>TA of CSC263: Data Structures and Analysis, UofT <span class="item-year">Winter 2022</span></li>
+        <li>TA of CSC108: Introduction to Computer Programming, UofT <span class="item-year">Fall 2021</span></li>
+        <li>Grader of MATH 450 Advanced Mathematics for Engineers I, UMich <span class="item-year">Winter 2021</span></li>
+        <li>Grader of MATH 214 Linear Algebra, UMich <span class="item-year">Fall 2020</span></li>
       </ul>
     </div>
 
@@ -650,6 +470,14 @@
         <div class="container">
           <h2>Miscellaneous</h2>
           <ul>
+            <li>
+              <em><strong>2026 July:</strong> I was inspired by <a href="https://www3.sqlite.org/matrix/crew.html" target="_blank">drh</a>, who maintains <a href="https://sqlite.org/" target="_blank">SQLite</a>, and by the blessing he places in the source code in lieu of a legal notice:</em>
+              <blockquote>
+                “May you do good and not evil.<br>
+                May you find forgiveness for yourself and forgive others.<br>
+                May you share freely, never taking more than you give.”
+              </blockquote>
+            </li>
             <li>
               <details>
                 <summary><em><strong>Update (2026/04)</strong> My research taste remains problem-driven, but I now believe impactful research draws insight from the ground up, then abstracts and generalizes solutions to broader domains. Older notes: <a href="#note-2025-10">2025/10</a>, <a href="#note-2025-03">2025/03</a>, <a href="#note-2024-08">2024/08</a>.</em></summary>
@@ -680,7 +508,7 @@
         <div class="container">
           <h2>Earlier Undergraduate Research Projects</h2>
           <details>
-            <summary style="cursor: pointer; font-weight: bold; margin-bottom: 1rem;">Click to Expand Projects</summary>
+            <summary class="project-toggle">Click to Expand Projects</summary>
             <div class="project-item">
               <img src="images/figure_queries.png" alt="Accelerate RegEx Synthesis">
               <div class="project-details">
@@ -719,10 +547,9 @@
       <footer id="contact">
         <div class="container">
           <p>Contact: <a href="mailto:zhiychen@cs.toronto.edu">zhiychen@cs.toronto.edu</a></p>
-          <p>© 2025 Zhiyang Chen</p>
+          <p>© 2026 Zhiyang Chen</p>
         </div>
       </footer>
-    </div>
-  </div>
+  </main>
 </body>
 </html>

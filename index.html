@@ -6,13 +6,18 @@
   <title>Zhiyang Chen</title>
   <meta name="description" content="Zhiyang Chen — Ph.D. candidate at the University of Toronto researching LLM security and blockchain security.">
   <link rel="icon" type="image/jpeg" href="images/me.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
   <header class="site-header">
     <div class="nav-shell">
-      <a class="site-brand" href="#about">Zhiyang Chen</a>
+      <div class="header-identity">
+        <a class="site-brand" href="#about">Zhiyang Chen</a>
+      </div>
       <nav aria-label="Primary navigation">
         <ul>
           <li><a href="#about">About</a></li>
@@ -34,6 +39,15 @@
         <div class="container">
           <div class="profile">
             <img src="images/me.jpg" alt="Profile Photo">
+            <nav class="social-links profile-socials" aria-label="Professional profiles">
+              <a href="mailto:zhiychen@cs.toronto.edu" aria-label="Email Zhiyang Chen" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+              <a href="https://scholar.google.com/citations?hl=en&amp;user=t4kgTJkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><i class="fas fa-graduation-cap" aria-hidden="true"></i></a>
+              <a href="https://github.com/jeffchen006" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/zhiyang-chen-67a947266/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/jeffchen006/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <button class="wechat-copy" type="button" data-wechat="zhiychhhhhh" aria-label="Copy WeChat ID zhiychhhhhh" title="WeChat: zhiychhhhhh (click to copy)"><i class="fab fa-weixin" aria-hidden="true"></i></button>
+              <a href="https://twitter.com/zhiychen" target="_blank" rel="noopener noreferrer" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            </nav>
           </div>
 
           <div class="bio">
@@ -57,10 +71,10 @@
                 <p>
                   I spent one year as a part-time Research Engineer at <a href="https://www.zircuit.com/">Zircuit</a>, working with
                   <a href="https://x.com/dr_zircuit">Dr. Z</a>, <a href="https://www.linkedin.com/in/mderka/">Dr. Martin Derka</a>, and
-                  <a href="https://scholar.google.ca/citations?user=SmADsX8AAAAJ&hl=en">Dr. Jan Gorzny</a>. I joined the journey of building a highly complex zkrollup system from scratch and learned a great deal from wonderful colleagues and interesting people across the global Web3 community.
+                  <a href="https://scholar.google.ca/citations?user=SmADsX8AAAAJ&hl=en">Dr. Jan Gorzny</a>. This was invaluable start-up experience: I joined an early-stage team building a complex zk-rollup from scratch, worked through fast research and engineering cycles, and learned from exceptional colleagues and the broader global Web3 community.
                 </p>
                 <p>
-                  Before that, I spent more than one year at <a href="https://quantstamp.com/team">Quantstamp</a>, where I worked with <a href="https://www.linkedin.com/in/mderka/">Dr. Martin Derka</a> on smart contract auditing and automated vulnerability detection. That experience was deeply formative because it was also where I joined the journey of bringing my FlashSyn research into industrial practice.
+                  Before that, I spent more than one year at <a href="https://quantstamp.com/team">Quantstamp</a>, an established blockchain-security company, where I worked with <a href="https://www.linkedin.com/in/mderka/">Dr. Martin Derka</a> on smart-contract auditing and automated vulnerability detection. This gave me experience in a stable, mature security organization with rigorous engineering practices, and it was where I helped bring my FlashSyn research into industrial practice.
                 </p>
               </div>
               <div class="experience-block">
@@ -76,12 +90,6 @@
                 </p>
               </div>
             </details>
-            <p class="contact-links">
-              <a href="mailto:zhiychen@cs.toronto.edu"><i class="fas fa-envelope icon"></i>Email</a> /
-              <a href="https://github.com/jeffchen006/"><i class="fab fa-github icon"></i>Github</a> /
-              <a href="https://twitter.com/zhiychen"><i class="fab fa-twitter icon"></i>Twitter</a> /
-              <a href="https://scholar.google.com/citations?user=t4kgTJkAAAAJ&hl=en&oi=ao"><i class="fas fa-graduation-cap icon"></i>Scholar</a>
-            </p>
           </div>
 
 
@@ -167,7 +175,14 @@
               [<a href="https://icml.cc/virtual/2026/poster/62158" target="_blank"><i class="fas fa-image icon"></i>ICML Poster</a>]
               [<a href="https://github.com/Scam2Prompt/Scam2Prompt" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
               [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><span class="icon" aria-hidden="true">🤗</span>dataset</a>]
+              [<a href="https://slideslive.com/39081215" target="_blank" rel="noopener noreferrer"><i class="fas fa-circle-play icon"></i>video</a>]
             </p>
+            <div class="publication-media publication-media-featured">
+              <a class="publication-media-link" href="https://slideslive.com/39081215" target="_blank" rel="noopener noreferrer" aria-label="Watch the Scam2Prompt presentation on SlidesLive">
+                <img src="https://ma.slideslive.com/library/presentations/39081215/poster/scam2prompt-a-scalable-framework-for-auditing-malicious-scam-endpoints-in-production-llms_vXY3dO_small.png" alt="Scam2Prompt presentation preview" loading="lazy">
+                <span><i class="fas fa-circle-play" aria-hidden="true"></i> Watch video</span>
+              </a>
+            </div>
           </div>
 
           <div class="publication-item">
@@ -179,11 +194,21 @@
               [<a href="https://www.youtube.com/watch?v=leRHdMyEdfI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
               [<a href="https://docs.google.com/presentation/d/1kV8m1mVwKfd4_nTT8ZKtk1ZqaxkRFskgjx9XfUt12lI/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
             </p>
+            <div class="publication-media">
+              <button class="publication-video" type="button" data-video-id="leRHdMyEdfI" data-video-title="Enforcing Control Flow Integrity on DeFi Smart Contracts presentation" aria-label="Play Enforcing Control Flow Integrity on DeFi Smart Contracts presentation">
+                <img src="https://i.ytimg.com/vi/leRHdMyEdfI/hqdefault.jpg" alt="" loading="lazy">
+                <span><i class="fas fa-play" aria-hidden="true"></i></span>
+              </button>
+            </div>
           </div>
 
           <div class="publication-item">
             <p>
               <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “OpenTracer: A Dynamic Transaction Trace Analyzer for Smart Contract Invariant Generation and Beyond”  (ASE 2024 Tool Demonstrations).
+            </p>
+            <p class="publication-impact">
+              <span class="publication-impact-label"><i class="fas fa-star" aria-hidden="true"></i> First open-source</span>
+              <a href="https://github.com/jeffchen006/OpenTracer" target="_blank" rel="noopener noreferrer">OpenTracer</a> is the first open-source transaction-trace visualizer to display both decoded function calls and storage-state changes for any EVM-compatible blockchain.
             </p>
             <p class="publication-links">
               [<a href="https://arxiv.org/pdf/2407.10039" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
@@ -191,6 +216,12 @@
               [<a href="https://docs.google.com/presentation/d/1Yk7Y0bfB5W0gGtZlS6wFEOfOOKlgXSmasgPuoqhUj7Q/edit?usp=sharingr" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
               [<a href="https://www.youtube.com/watch?v=vTdmjWdYd30" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
             </p>
+            <div class="publication-media">
+              <button class="publication-video" type="button" data-video-id="vTdmjWdYd30" data-video-title="OpenTracer presentation" aria-label="Play OpenTracer presentation">
+                <img src="https://i.ytimg.com/vi/vTdmjWdYd30/hqdefault.jpg" alt="" loading="lazy">
+                <span><i class="fas fa-play" aria-hidden="true"></i></span>
+              </button>
+            </div>
           </div>
 
           <div class="publication-item">
@@ -206,18 +237,40 @@
               [<a href="https://docs.google.com/presentation/d/16phJQ7H_aOX01QDOme2_mceOUrVOIc4kfXcolijDlNE/edit#slide=id.p" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
               [<a href="https://docs.google.com/presentation/d/139etymRy-Xnq3e6jFXtxQbpixIquZO9aBbuMCg4rX7Q/edit?usp=sharing" target="_blank"><i class="fas fa-file-alt icon"></i>poster</a>]
             </p>
+            <div class="publication-media">
+              <iframe src="https://docs.google.com/presentation/d/16phJQ7H_aOX01QDOme2_mceOUrVOIc4kfXcolijDlNE/embed?start=false&amp;loop=false&amp;delayms=3000" title="Demystifying Invariant Effectiveness for Securing Smart Contracts slides" loading="lazy" allowfullscreen></iframe>
+              <a class="publication-slide-open" href="https://docs.google.com/presentation/d/16phJQ7H_aOX01QDOme2_mceOUrVOIc4kfXcolijDlNE/edit#slide=id.p" target="_blank" rel="noopener noreferrer" aria-label="Open Demystifying Invariant Effectiveness for Securing Smart Contracts slides">
+                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open slides
+              </a>
+            </div>
           </div>
 
           <div class="publication-item">
             <p>
               <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Fan Long, “FlashSyn: Flash Loan Attack Synthesis via Counter Example Driven Approximation”  (ICSE 2024).
             </p>
+            <p class="publication-impact">
+              <span class="publication-impact-label"><i class="fas fa-industry" aria-hidden="true"></i> Research → Production</span>
+              FlashSyn was adopted by Quantstamp and developed into <a href="https://quantstamp.com/economic-exploits" target="_blank" rel="noopener noreferrer">Economic Exploit Analysis</a>, a production service for detecting flash-loan attack vulnerabilities in deployed and pre-deployment EVM protocols. Media coverage: <a href="https://www.coindesk.com/tech/2023/08/23/blockchain-security-firm-quantstamp-hopes-to-battle-flash-loan-attacks-with-new-service" target="_blank" rel="noopener noreferrer">CoinDesk</a> and <a href="https://www.theblock.co/post/246956/quantstamp-tool-to-thwart-defi-flash-loan-attacks" target="_blank" rel="noopener noreferrer">The Block</a>.
+            </p>
+            <p class="publication-impact publication-presentations">
+              <span class="publication-impact-label"><i class="fas fa-microphone-lines" aria-hidden="true"></i> Industry presentation</span>
+              Presented as “Automated Flash Loan Attack Synthesis” at the <a href="https://www.youtube.com/watch?v=e6VR7Rv-jiY" target="_blank" rel="noopener noreferrer">DeFi Security Summit in Paris, France (2023)</a>; also listed in Zircuit’s <a href="https://docs.zircuit.com/info/research/talks-and-panels" target="_blank" rel="noopener noreferrer">official talks archive</a>.
+            </p>
             <p class="publication-links">
               [<a href="pdfs/flashsyn-icse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
               [<a href="https://arxiv.org/pdf/2206.10708.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
               [<a href="https://github.com/FlashSyn-Artifact/FlashSyn-Artifact-ICSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
               [<a href="https://docs.google.com/presentation/d/1438qvhgIPhh39PQ-6oOEgG9lkPsuDI0Jo9hNRMxOe4U/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
+              [<a href="https://quantstamp.com/economic-exploits" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square icon"></i>Quantstamp product</a>]
+              [<a href="https://www.youtube.com/watch?v=H4LsugFv7CU" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube icon"></i>Quantstamp video</a>]
             </p>
+            <div class="publication-media">
+              <button class="publication-video" type="button" data-video-id="H4LsugFv7CU" data-video-title="Quantstamp Economic Exploit Analysis" aria-label="Play Quantstamp Economic Exploit Analysis video">
+                <img src="https://i.ytimg.com/vi/H4LsugFv7CU/hqdefault.jpg" alt="" loading="lazy">
+                <span><i class="fas fa-play" aria-hidden="true"></i></span>
+              </button>
+            </div>
           </div>
 
           <div class="publication-item">
@@ -230,42 +283,34 @@
               [<a href="https://www.youtube.com/watch?v=v5scz1bzQN8&ab_channel=ACMSIGCHI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
               [<a href="https://github.com/tianyi-zhang/interactive-program-synthesis" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
             </p>
+            <div class="publication-media">
+              <button class="publication-video" type="button" data-video-id="v5scz1bzQN8" data-video-title="Interpretable Program Synthesis presentation" aria-label="Play Interpretable Program Synthesis presentation">
+                <img src="https://i.ytimg.com/vi/v5scz1bzQN8/hqdefault.jpg" alt="" loading="lazy">
+                <span><i class="fas fa-play" aria-hidden="true"></i></span>
+              </button>
+            </div>
           </div>
 
           <details class="folded-section">
-            <summary>All Publications</summary>
-            <div class="publication-item">
-              <p>
-                <strong>Zhiyang Chen</strong>, Tara Saba, Xun Deng, Xujie Si, Fan Long, “Scam2Prompt: A Scalable Framework for Auditing Malicious Scam Endpoints in Production LLMs”, International Conference on Machine Learning (ICML), 2026.
-              </p>
-              <p class="publication-links">
-                [<a href="https://scam2prompt.github.io" target="_blank"><i class="fas fa-globe icon"></i>project</a>]
-                [<a href="https://scam2prompt.github.io/assets/scam2prompt-preprint.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-                [<a href="https://openreview.net/forum?id=jEQQBE30m1" target="_blank"><i class="fas fa-comments icon"></i>OpenReview</a>]
-                [<a href="https://icml.cc/virtual/2026/poster/62158" target="_blank"><i class="fas fa-image icon"></i>ICML Poster</a>]
-                [<a href="https://github.com/Scam2Prompt/Scam2Prompt" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-                [<a href="https://huggingface.co/datasets/jeffchen006/Innoc2Scam-bench-ICML26" target="_blank"><span class="icon" aria-hidden="true">🤗</span>dataset</a>]
-              </p>
-            </div>
-
-            <div class="publication-item">
-              <p>
-                <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Pasha Barahimi, Cyrus Minwalla, Han Du, Andreas Veneris, Fan Long, “Enforcing Control Flow Integrity on DeFi Smart Contracts”, International Conference on Software Engineering (ICSE), 2026.
-              </p>
-              <p class="publication-links">
-                [<a href="https://arxiv.org/pdf/2504.05509" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-                [<a href="https://www.youtube.com/watch?v=leRHdMyEdfI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
-                [<a href="https://docs.google.com/presentation/d/1kV8m1mVwKfd4_nTT8ZKtk1ZqaxkRFskgjx9XfUt12lI/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-              </p>
-            </div>
+            <summary>Other Publications</summary>
 
             <div class="publication-item">
               <p>
                 Jan Gorzny, <strong>Zhiyang Chen</strong>, Krzysztof Gogol, “Ethereum Layer Two Client Similarity: Geth”, SANER 2026 IWBOSE.
               </p>
+              <p class="publication-impact publication-presentations">
+                <span class="publication-impact-label"><i class="fas fa-microphone-lines" aria-hidden="true"></i> Industry presentation</span>
+                Presented by Jan Gorzny at <a href="https://ethcc.io/speakers/jan-gorzny" target="_blank" rel="noopener noreferrer">EthCC[9] in Cannes, France (2026)</a>; <a href="https://www.youtube.com/watch?v=03vPlZSkGQY" target="_blank" rel="noopener noreferrer">recording</a>.
+              </p>
               <p class="publication-links">
                 [<a href="https://www.youtube.com/watch?v=03vPlZSkGQY" target="_blank"><i class="fab fa-youtube icon"></i>presentation</a>]
               </p>
+              <div class="publication-media">
+                <button class="publication-video" type="button" data-video-id="03vPlZSkGQY" data-video-title="Ethereum Layer Two Client Similarity: Geth presentation" aria-label="Play Ethereum Layer Two Client Similarity: Geth presentation">
+                  <img src="https://i.ytimg.com/vi/03vPlZSkGQY/hqdefault.jpg" alt="" loading="lazy">
+                  <span><i class="fas fa-play" aria-hidden="true"></i></span>
+                </button>
+              </div>
             </div>
 
             <div class="publication-item">
@@ -274,88 +319,84 @@
               </p>
               <p class="publication-links">
                 [<a href="https://dl.acm.org/doi/pdf/10.1145/3758316.3762819" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://www.youtube.com/watch?v=Jj0bsdLX2ps" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube icon"></i>video</a>]
               </p>
+              <div class="publication-media">
+                <button class="publication-video" type="button" data-video-id="Jj0bsdLX2ps" data-video-title="A Multi-Layer Dynamic Security Framework for DeFi Smart Contracts presentation" aria-label="Play A Multi-Layer Dynamic Security Framework for DeFi Smart Contracts presentation">
+                  <img src="https://i.ytimg.com/vi/Jj0bsdLX2ps/hqdefault.jpg" alt="" loading="lazy">
+                  <span><i class="fas fa-play" aria-hidden="true"></i></span>
+                </button>
+              </div>
             </div>
 
             <div class="publication-item">
               <p>
                 Martin Derka, Jan Gorzny, Diego Siqueira, Donato Pellegrino, Marius Guggenmos, <strong>Zhiyang Chen</strong>, “Sequencer Level Security”, IEEE International Conference on Blockchain and Cryptocurrency (ICBC 2025 Poster).
               </p>
+              <p class="publication-impact">
+                <span class="publication-impact-label"><i class="fas fa-shield-alt" aria-hidden="true"></i> Zircuit launch feature</span>
+                During Zircuit’s 2024–2025 L2 launch phase, SLS was the chain’s signature security feature: it inspected transactions before block inclusion and quarantined suspected exploits. Zircuit <a href="https://www.zircuit.com/blog/the-sequencer-level-security-paper-is-out" target="_blank" rel="noopener noreferrer">announced the research as a new security paradigm</a>, made it central to its <a href="https://www.zircuit.com/blog/zircuit-technical-roadmap-part-ii-scaling-securely" target="_blank" rel="noopener noreferrer">technical roadmap</a>, and described the launch-era mainnet as <a href="https://www.zircuit.com/en/blog/zrc-is-officially-live" target="_blank" rel="noopener noreferrer">powering a $2 billion TVL ecosystem</a>. See the <a href="https://docs.zircuit.com/info/architecture/sls" target="_blank" rel="noopener noreferrer">technical architecture</a>.
+              </p>
+              <p class="publication-impact publication-presentations">
+                <span class="publication-impact-label"><i class="fas fa-microphone-lines" aria-hidden="true"></i> Industry presentations</span>
+                Presented by Martin Derka at <a href="https://www.youtube.com/watch?v=8RiLNXNEGs4" target="_blank" rel="noopener noreferrer">ETHDenver in Denver, USA (2024)</a>, <a href="https://www.youtube.com/watch?v=xpwhTC2G1WI" target="_blank" rel="noopener noreferrer">ETH Prague in Prague, Czech Republic (2024)</a>, and the <a href="https://luma.com/ZircuitLayerTwoSummit" target="_blank" rel="noopener noreferrer">Zircuit Layer Two Meetup during EDCON in Tokyo, Japan (2024)</a>; presented by Jan Gorzny at <a href="https://www.youtube.com/watch?v=IhmtmXuAFO8" target="_blank" rel="noopener noreferrer">Ethereum Zurich in Zurich, Switzerland (2024)</a>. Zircuit’s <a href="https://docs.zircuit.com/info/research/talks-and-panels" target="_blank" rel="noopener noreferrer">official talks archive</a> also records “Enhancing L2 Security with Sequencer-Level Protection” at the DeFi Security Summit in Bangkok, Thailand (2024).
+              </p>
               <p class="publication-links">
                 [<a href="https://arxiv.org/pdf/2405.01819.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
+                [<a href="https://www.youtube.com/watch?v=8RiLNXNEGs4" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube icon"></i>video</a>]
               </p>
+              <div class="publication-media">
+                <button class="publication-video" type="button" data-video-id="8RiLNXNEGs4" data-video-title="Sequencer Level Security presentation" aria-label="Play Sequencer Level Security presentation">
+                  <img src="https://i.ytimg.com/vi/8RiLNXNEGs4/hqdefault.jpg" alt="" loading="lazy">
+                  <span><i class="fas fa-play" aria-hidden="true"></i></span>
+                </button>
+              </div>
             </div>
 
             <div class="publication-item">
               <p>
                 <strong>Zhiyang Chen</strong>, Phillip Kemper, Yi Liu, Jan Gorzny, Diego Siqueira, Yuekang Li, Donato Pellegrino, and Martin Derka, “A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains”, 7th International Workshop on Emerging Trends in Software Engineering for Blockchain (ICSE-WETSEB 2025).
               </p>
+              <p class="publication-impact">
+                <span class="publication-impact-label"><i class="fas fa-route" aria-hidden="true"></i> Zircuit roadmap</span>
+                Zircuit’s <a href="https://www.zircuit.com/blog/zircuit-technical-roadmap-part-ii-scaling-securely" target="_blank" rel="noopener noreferrer">2025 technical roadmap</a> identifies this WETSEB methodology as part of the operating evidence behind SLS: the team replayed real-world historical exploits in end-to-end tests and confirmed that the system detected them.
+              </p>
+              <p class="publication-impact publication-presentations">
+                <span class="publication-impact-label"><i class="fas fa-microphone-lines" aria-hidden="true"></i> Industry presentations</span>
+                Related work was presented as “Challenges of Replicating Historical Exploits” by Jan Gorzny at <a href="https://www.youtube.com/watch?v=uicp15MoF1I" target="_blank" rel="noopener noreferrer">EthCC[8] in Cannes, France (2025)</a>, and by Zhiyang Chen at the <a href="https://events.vtools.ieee.org/m/469545" target="_blank" rel="noopener noreferrer">IEEE Canada Blockchain Forum in Toronto, Canada (2025)</a>.
+              </p>
               <p class="publication-links">
                 [<a href="pdfs/forking-ICSE25-WETSEB.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
                 [<a href="https://docs.google.com/presentation/d/1F2A_BhhckNuAVwoIWbLu--pdJet9SVuJDSkxII47fpE/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
               </p>
+              <div class="publication-media">
+                <iframe src="https://docs.google.com/presentation/d/1F2A_BhhckNuAVwoIWbLu--pdJet9SVuJDSkxII47fpE/embed?start=false&amp;loop=false&amp;delayms=3000" title="A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains slides" loading="lazy" allowfullscreen></iframe>
+                <a class="publication-slide-open" href="https://docs.google.com/presentation/d/1F2A_BhhckNuAVwoIWbLu--pdJet9SVuJDSkxII47fpE/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open A Methodology for Replicating Historical Exploits on EVM-Compatible Blockchains slides">
+                  <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open slides
+                </a>
+              </div>
             </div>
 
             <div class="publication-item">
               <p>
                 <strong>Zhiyang Chen</strong>, Jan Gorzny, Martin Derka, “Instrumenting Transaction Trace Properties in Smart Contracts: Extending EVM for Real-Time Security”, 8th International Workshop on Blockchain-Oriented Software Engineering (SANER-IWBOSE 2025).
               </p>
+              <p class="publication-impact">
+                <span class="publication-impact-label"><i class="fas fa-route" aria-hidden="true"></i> Zircuit roadmap</span>
+                Zircuit’s <a href="https://www.zircuit.com/blog/zircuit-technical-roadmap-part-ii-scaling-securely" target="_blank" rel="noopener noreferrer">2025 technical roadmap</a> directly links this paper alongside the original SLS research as a basis for SLS 2.0 and 3.0, including sub-transaction checks for violated smart-contract invariants and more complex transaction- and block-level analysis.
+              </p>
               <p class="publication-links">
                 [<a href="https://arxiv.org/pdf/2408.14621.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
                 [<a href="https://docs.google.com/presentation/d/1XFTit5HP2ooUzCH0Sibv7VtGh_UNFGQrk66m6Uauflo/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
               </p>
+              <div class="publication-media">
+                <iframe src="https://docs.google.com/presentation/d/1XFTit5HP2ooUzCH0Sibv7VtGh_UNFGQrk66m6Uauflo/embed?start=false&amp;loop=false&amp;delayms=3000" title="Instrumenting Transaction Trace Properties in Smart Contracts slides" loading="lazy" allowfullscreen></iframe>
+                <a class="publication-slide-open" href="https://docs.google.com/presentation/d/1XFTit5HP2ooUzCH0Sibv7VtGh_UNFGQrk66m6Uauflo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Instrumenting Transaction Trace Properties in Smart Contracts slides">
+                  <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open slides
+                </a>
+              </div>
             </div>
 
-            <div class="publication-item">
-              <p>
-                <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “OpenTracer: A Dynamic Transaction Trace Analyzer for Smart Contract Invariant Generation and Beyond”  (ASE 2024 Tool Demonstrations).
-              </p>
-              <p class="publication-links">
-                [<a href="https://arxiv.org/pdf/2407.10039" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-                [<a href="https://github.com/jeffchen006/OpenTracer" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-                [<a href="https://docs.google.com/presentation/d/1Yk7Y0bfB5W0gGtZlS6wFEOfOOKlgXSmasgPuoqhUj7Q/edit?usp=sharingr" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-                [<a href="https://www.youtube.com/watch?v=vTdmjWdYd30" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
-              </p>
-            </div>
-
-            <div class="publication-item">
-              <p>
-                <strong>Zhiyang Chen</strong>, Ye Liu, Sidi Mohamed Beillahi, Yi Li, Fan Long, “Demystifying Invariant Effectiveness for Securing Smart Contracts” (FSE 2024).
-              </p>
-              <p class="publication-links">
-                [<a href="pdfs/trace2inv-fse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-                [<a href="https://arxiv.org/pdf/2404.14580.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
-                [<a href="https://github.com/jeffchen006/Trace2Inv-Artifact-FSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-                [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Benchmarks" target="_blank"><i class="fab fa-github icon"></i>benchmarks</a>]
-                [<a href="https://github.com/Trace2Inv-Artifact/Trace2Inv-Invariant-Study-FSE24" target="_blank"><i class="fab fa-github icon"></i>invariant study results</a>]
-                [<a href="https://docs.google.com/presentation/d/16phJQ7H_aOX01QDOme2_mceOUrVOIc4kfXcolijDlNE/edit#slide=id.p" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-                [<a href="https://docs.google.com/presentation/d/139etymRy-Xnq3e6jFXtxQbpixIquZO9aBbuMCg4rX7Q/edit?usp=sharing" target="_blank"><i class="fas fa-file-alt icon"></i>poster</a>]
-              </p>
-            </div>
-
-            <div class="publication-item">
-              <p>
-                <strong>Zhiyang Chen</strong>, Sidi Mohamed Beillahi, Fan Long, “FlashSyn: Flash Loan Attack Synthesis via Counter Example Driven Approximation”  (ICSE 2024).
-              </p>
-              <p class="publication-links">
-                [<a href="pdfs/flashsyn-icse24.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-                [<a href="https://arxiv.org/pdf/2206.10708.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>extended paper</a>]
-                [<a href="https://github.com/FlashSyn-Artifact/FlashSyn-Artifact-ICSE24" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-                [<a href="https://docs.google.com/presentation/d/1438qvhgIPhh39PQ-6oOEgG9lkPsuDI0Jo9hNRMxOe4U/edit?usp=sharing" target="_blank"><i class="fab fa-slideshare icon"></i>slides</a>]
-              </p>
-            </div>
-
-            <div class="publication-item">
-              <p>
-                Tianyi Zhang, <strong>Zhiyang Chen</strong>, Yuanli Zhu, Priyan Vaithilingam, Xinyu Wang, Elena L. Glassman, “Interpretable Program Synthesis”, Proceedings of CHI 2021.
-              </p>
-              <p class="publication-links">
-                [<a href="pdfs/CHI2021.pdf" target="_blank"><i class="fas fa-file-pdf icon"></i>paper</a>]
-                [<a href="https://www.youtube.com/watch?v=biUQi0GW6jc" target="_blank"><i class="fab fa-youtube icon"></i>preview</a>]
-                [<a href="https://www.youtube.com/watch?v=v5scz1bzQN8&ab_channel=ACMSIGCHI" target="_blank"><i class="fab fa-youtube icon"></i>video</a>]
-                [<a href="https://github.com/tianyi-zhang/interactive-program-synthesis" target="_blank"><i class="fab fa-github icon"></i>artifact</a>]
-              </p>
-            </div>
           </details>
         </div>
       </section>
@@ -396,7 +437,10 @@
             <li>DCS Travel Grant, University of Toronto, 2024</li>
             <li>Bell Graduate Scholarship, 2024</li>
             <li>Mitacs Accelerate Fellowship with Bank of Canada, 2023-2024</li>
-            <li>Co-author of Ethereum Foundation Grant FY23-0882 (<a href="https://github.com/quantstamp/l2-block-explorer-api" target="_blank"><i class="fab fa-github icon"></i>Back-End API Standard for L2 Block Explorers</a>), 2023</li>
+            <li>
+              Co-author of Ethereum Foundation Grant FY23-0882 (<a href="https://github.com/quantstamp/l2-block-explorer-api" target="_blank" rel="noopener noreferrer"><i class="fab fa-github icon"></i>Back-End API Standard for L2 Block Explorers</a>), 2023
+              <span class="item-note">Author credit in the project repository: <strong>Jeff Chen</strong>, Junior Research Engineer at Quantstamp.</span>
+            </li>
             <li>Smart Contract Research Forum Grant, 2022</li>
             <li>The Wolfond Scholarship in Wireless Information Technology, 2021</li>
             <li>Outstanding graduate of Shanghai Jiao Tong University, 2021</li>
@@ -546,10 +590,20 @@
       <!-- Footer / Contact -->
       <footer id="contact">
         <div class="container">
+          <nav class="social-links footer-socials" aria-label="Contact and social profiles">
+            <a href="mailto:zhiychen@cs.toronto.edu" aria-label="Email Zhiyang Chen" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=t4kgTJkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><i class="fas fa-graduation-cap" aria-hidden="true"></i></a>
+            <a href="https://github.com/jeffchen006" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/zhiyang-chen-67a947266/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/jeffchen006/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <button class="wechat-copy" type="button" data-wechat="zhiychhhhhh" aria-label="Copy WeChat ID zhiychhhhhh" title="WeChat: zhiychhhhhh (click to copy)"><i class="fab fa-weixin" aria-hidden="true"></i></button>
+            <a href="https://twitter.com/zhiychen" target="_blank" rel="noopener noreferrer" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </nav>
           <p>Contact: <a href="mailto:zhiychen@cs.toronto.edu">zhiychen@cs.toronto.edu</a></p>
           <p>© 2026 Zhiyang Chen</p>
         </div>
       </footer>
   </main>
+  <script src="media-player.js"></script>
 </body>
 </html>

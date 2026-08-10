@@ -139,8 +139,73 @@ img {
   background: transparent;
 }
 
-.wechat-copy.is-copied {
-  color: #8ed3dc;
+.social-qr-dialog {
+  width: min(92vw, 430px);
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  overflow: auto;
+  color: var(--ink);
+  background: #ffffff;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
+}
+
+.social-qr-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.66);
+  backdrop-filter: blur(3px);
+}
+
+.social-qr-dialog-card {
+  position: relative;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.social-qr-dialog h2 {
+  margin: 0 2rem 1rem;
+  font-size: 1.4rem;
+}
+
+.social-qr-dialog img {
+  display: block;
+  width: min(100%, 340px);
+  height: auto;
+  margin: 0 auto 1rem;
+  border-radius: 10px;
+}
+
+.social-qr-dialog p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.social-qr-dialog-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  color: var(--muted);
+  background: #f0f1f2;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.social-qr-dialog-close:hover {
+  color: var(--ink);
+  background: #e3e5e7;
+}
+
+.social-links button:focus-visible,
+.social-qr-dialog-close:focus-visible {
+  outline: 3px solid #8ed3dc;
+  outline-offset: 3px;
 }
 
 .site-header nav ul {

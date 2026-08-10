@@ -27,50 +27,40 @@
     });
   });
 
-  const wechatButtons = document.querySelectorAll(".wechat-copy");
+  const setupSocialQrDialog = (dialogId) => {
+    const dialog = document.querySelector(`#${dialogId}`);
 
-  const copyText = async (text) => {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
+    if (!dialog) {
       return;
     }
 
-    const input = document.createElement("textarea");
-    input.value = text;
-    input.setAttribute("readonly", "");
-    input.style.position = "fixed";
-    input.style.opacity = "0";
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand("copy");
-    input.remove();
-  };
+    const buttons = document.querySelectorAll(`[aria-controls="${dialogId}"]`);
+    const closeButton = dialog.querySelector(".social-qr-dialog-close");
+    let activeButton = null;
 
-  wechatButtons.forEach((button) => {
-    button.addEventListener("click", async () => {
-      const account = button.dataset.wechat;
-      const icon = button.querySelector("i");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeButton = button;
+        dialog.showModal();
+      });
+    });
 
-      if (!account || !icon) {
-        return;
-      }
+    closeButton?.addEventListener("click", () => {
+      dialog.close();
+    });
 
-      try {
-        await copyText(account);
-        button.classList.add("is-copied");
-        button.setAttribute("aria-label", `Copied WeChat ID ${account}`);
-        button.title = `Copied: ${account}`;
-        icon.className = "fas fa-check";
-
-        window.setTimeout(() => {
-          button.classList.remove("is-copied");
-          button.setAttribute("aria-label", `Copy WeChat ID ${account}`);
-          button.title = `WeChat: ${account} (click to copy)`;
-          icon.className = "fab fa-weixin";
-        }, 1800);
-      } catch (error) {
-        button.title = `WeChat: ${account}`;
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) {
+        dialog.close();
       }
     });
-  });
+
+    dialog.addEventListener("close", () => {
+      activeButton?.focus();
+      activeButton = null;
+    });
+  };
+
+  setupSocialQrDialog("wechat-dialog");
+  setupSocialQrDialog("instagram-dialog");
 })();

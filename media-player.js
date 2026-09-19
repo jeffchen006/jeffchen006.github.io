@@ -61,6 +61,5 @@
     });
   };
 
-  setupSocialQrDialog("wechat-dialog");
   setupSocialQrDialog("instagram-dialog");
 })();

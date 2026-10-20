@@ -932,3 +932,20 @@ footer button:hover {
     scroll-behavior: auto;
   }
 }
+
+/* A quiet entrance beside the footer copyright. */
+footer .timeline-entry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #999999;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+footer .timeline-entry:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

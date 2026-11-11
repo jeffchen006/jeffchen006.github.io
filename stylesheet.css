@@ -949,3 +949,41 @@ footer .timeline-entry:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+
+/* Compact homepage contribution table. Status bars share a 54-report scale. */
+.contribution-table-wrap { overflow-x: auto; }
+.contribution-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.contribution-table caption { margin: 0.75rem 0; color: var(--muted); text-align: left; font-size: 0.8rem; }
+.contribution-table th, .contribution-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.contribution-table th { font-weight: 500; }
+.contribution-table thead { background: var(--soft-surface); }
+.contribution-table tbody th { width: 25%; min-width: 10rem; }
+.contribution-table a { text-decoration: underline; }
+.contribution-table-wrap:focus-visible { outline: 2px solid var(--accent); }
+.report-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.78rem; }
+.report-legend-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+.report-dot { width: 0.6rem; height: 0.6rem; border-radius: 2px; background: var(--status-color); }
+.status-accepted { --status-color: #228457; }
+.status-acknowledged { --status-color: #377eb8; }
+.status-pending { --status-color: #d6a335; }
+.status-not-planned { --status-color: #7e8791; }
+.status-rejected { --status-color: #c44e52; }
+.status-duplicate { --status-color: #8b6caf; }
+.report-meter { display: flex; align-items: center; gap: 0.8rem; }
+.report-scale { flex: 1; min-width: 0; }
+.report-bar { display: flex; height: 12px; overflow: hidden; border-radius: 3px; }
+.report-segment { flex-basis: 0; min-width: 0; background: var(--status-color); }
+.report-total { min-width: 1.5rem; text-align: right; font-size: 0.85rem; font-weight: 500; }
+.report-tallies { margin-top: 0.25rem; color: #595959; font-size: 0.75rem; line-height: 1.45; }
+.status-tally::before { content: ''; display: inline-block; width: 0.45rem; height: 0.45rem; margin-right: 0.25rem; border-radius: 1px; background: var(--status-color); }
+.report-sources { display: block; margin-top: 0.15rem; font-size: 0.75rem; font-weight: 300; }
+.sqlite-contribution { font-size: 0.82rem; }
+@media (max-width: 600px) {
+  .contribution-table tbody th { min-width: 7rem; width: 30%; }
+  .contribution-table th, .contribution-table td { padding: 0.6rem 0.4rem; }
+  .report-tallies { font-size: 0.7rem; }
+  .report-legend { gap: 0.35rem 0.7rem; }
+}
+
+.contribution-tools { margin: 0.75rem 0 0; font-size: 0.8rem; }
+.contribution-tools a { text-decoration: underline; }

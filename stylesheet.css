@@ -952,20 +952,23 @@ footer .timeline-entry:focus-visible {
 
 /* Compact homepage contribution table. Status bars share one report-count scale. */
 .contribution-table-wrap { overflow-x: auto; }
-.contribution-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.contribution-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 0.9rem; }
 .contribution-table caption { margin: 0.75rem 0; color: var(--muted); text-align: left; font-size: 0.8rem; }
 .contribution-table th, .contribution-table td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
 .contribution-table th { font-weight: 500; }
 .contribution-table thead { background: var(--soft-surface); }
-.contribution-table tbody th { width: 25%; min-width: 10rem; }
+.report-category-col { width: 18%; }
+.report-project-col { width: 28%; }
+.report-status-col { width: 54%; }
+.contribution-table .report-category-name { vertical-align: top; padding-top: 1rem; color: var(--muted); font-size: 0.78rem; font-weight: 500; }
+.report-project { overflow-wrap: anywhere; }
 .contribution-table a { text-decoration: underline; }
-.contribution-table .report-category th { width: auto; min-width: 0; padding: 0.45rem 0.75rem; background: var(--soft-surface); color: var(--muted); font-size: 0.78rem; font-weight: 600; }
 .contribution-table-wrap:focus-visible { outline: 2px solid var(--accent); }
 .report-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.78rem; }
 .report-legend-item { display: inline-flex; align-items: center; gap: 0.35rem; }
 .report-dot { width: 0.6rem; height: 0.6rem; border-radius: 2px; background: var(--status-color); }
-.status-accepted { --status-color: #228457; }
-.status-acknowledged { --status-color: #377eb8; }
+.status-fixed { --status-color: #228457; }
+.status-confirmed { --status-color: #377eb8; }
 .status-pending { --status-color: #d6a335; }
 .status-not-planned { --status-color: #7e8791; }
 .status-rejected { --status-color: #c44e52; }
@@ -978,9 +981,22 @@ footer .timeline-entry:focus-visible {
 .report-tallies { margin-top: 0.25rem; color: #595959; font-size: 0.75rem; line-height: 1.45; }
 .status-tally::before { content: ''; display: inline-block; width: 0.45rem; height: 0.45rem; margin-right: 0.25rem; border-radius: 1px; background: var(--status-color); }
 .report-sources { display: block; margin-top: 0.15rem; font-size: 0.75rem; font-weight: 300; }
+.contribution-table .report-more-cell { padding: 0; }
+.report-more summary { width: fit-content; margin: 0.3rem 0.75rem; color: var(--accent); font-size: 0.73rem; cursor: pointer; }
+.report-more summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.report-more .report-less-label, .report-more[open] .report-more-label { display: none; }
+.report-more[open] .report-less-label { display: inline; }
+.report-more-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: inherit; }
+.report-more-project-col { width: 34.146341%; }
+.report-more-table tr:last-child th, .report-more-table tr:last-child td { border-bottom: 0; }
 .sqlite-contribution { font-size: 0.82rem; }
 @media (max-width: 600px) {
-  .contribution-table tbody th { min-width: 7rem; width: 30%; }
+  .report-category-col { width: 22%; }
+  .report-project-col { width: 30%; }
+  .report-status-col { width: 48%; }
+  .report-more-project-col { width: 38.461538%; }
+  .contribution-table { font-size: 0.8rem; }
+  .contribution-table .report-category-name { font-size: 0.7rem; overflow-wrap: anywhere; }
   .contribution-table th, .contribution-table td { padding: 0.6rem 0.4rem; }
   .report-tallies { font-size: 0.7rem; }
   .report-legend { gap: 0.35rem 0.7rem; }

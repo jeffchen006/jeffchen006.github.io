@@ -950,15 +950,16 @@ footer .timeline-entry:focus-visible {
   outline-offset: 2px;
 }
 
-/* Compact homepage contribution table. Status bars share a 54-report scale. */
+/* Compact homepage contribution table. Status bars share one report-count scale. */
 .contribution-table-wrap { overflow-x: auto; }
 .contribution-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .contribution-table caption { margin: 0.75rem 0; color: var(--muted); text-align: left; font-size: 0.8rem; }
-.contribution-table th, .contribution-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.contribution-table th, .contribution-table td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
 .contribution-table th { font-weight: 500; }
 .contribution-table thead { background: var(--soft-surface); }
 .contribution-table tbody th { width: 25%; min-width: 10rem; }
 .contribution-table a { text-decoration: underline; }
+.contribution-table .report-category th { width: auto; min-width: 0; padding: 0.45rem 0.75rem; background: var(--soft-surface); color: var(--muted); font-size: 0.78rem; font-weight: 600; }
 .contribution-table-wrap:focus-visible { outline: 2px solid var(--accent); }
 .report-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.78rem; }
 .report-legend-item { display: inline-flex; align-items: center; gap: 0.35rem; }

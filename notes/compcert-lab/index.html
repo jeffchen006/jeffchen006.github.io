@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="An interactive guide to using and developing the CompCert verified C compiler.">
+  <meta name="theme-color" content="#f6f5fb">
+  <title>CompCert Lab · Zhiyang Chen</title>
+  <link rel="icon" href="../../images/me.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lab.css">
+  <script type="module" src="lab.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workbench">Skip to the workbench</a>
+  <header class="topbar">
+    <div class="frame topbar-inner">
+      <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">[›]</span> CompCert Lab</a>
+      <nav aria-label="Lab sections">
+        <a href="#workbench">Workbench</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#develop">Develop</a>
+      </nav>
+      <a class="home-link" href="../../">Zhiyang Chen</a>
+    </div>
+  </header>
+
+  <main class="frame" id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-rule" aria-hidden="true"></span> THE VERIFIED C COMPILER</p>
+        <h1 id="page-title">CompCert <span>Lab</span></h1>
+        <p class="hero-summary">Compile C to assembly, follow a program through the pipeline, and change a verified optimization pass.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#workbench">Open workbench</a>
+          <a class="button outline" href="#develop">Develop CompCert</a>
+        </div>
+      </div>
+      <aside class="hero-diagram" aria-label="CompCert compilation and proof">
+        <div class="diagram-title"><span>COMPILATION</span><a href="https://github.com/AbsInt/CompCert/releases/tag/v3.18">v3.18</a></div>
+        <div class="diagram-flow">
+          <div class="diagram-node"><span class="diagram-icon" aria-hidden="true">C</span><strong>CompCert C</strong><code>Csyntax.program</code></div>
+          <div class="diagram-node verified"><span class="diagram-icon" aria-hidden="true">✓</span><strong>Verified passes</strong><code>Rocq proofs</code></div>
+          <div class="diagram-node"><span class="diagram-icon" aria-hidden="true">01</span><strong>Assembly</strong><code>Asm.program</code></div>
+        </div>
+      </aside>
+    </section>
+
+    <noscript><p class="notice">Enable JavaScript to use the interactive lab. The <a href="https://compcert.org/man/manual003.html">CompCert manual</a> covers the same compiler options.</p></noscript>
+
+    <section class="lab-section" id="workbench" aria-labelledby="workbench-title">
+      <div class="section-heading">
+        <h2 id="workbench-title">Compile a C program</h2>
+        <p>Edit a preset and run CompCert 3.18. Switch between <code>-O0</code> and <code>-O1</code> to compare the generated assembly.</p>
+      </div>
+      <div class="workbench">
+        <div class="workbench-controls">
+          <div class="control-group">
+            <label for="example">Example</label>
+            <select id="example">
+              <option value="constant">Constant propagation</option>
+              <option value="loop">Summation loop</option>
+              <option value="branch">Conditional selection</option>
+            </select>
+          </div>
+          <fieldset class="control-group optimization">
+            <legend>Optimization</legend>
+            <div class="segmented">
+              <input type="radio" name="optimization" id="o0" value="-O0"><label for="o0">-O0</label>
+              <input type="radio" name="optimization" id="o1" value="-O1" checked><label for="o1">-O1</label>
+            </div>
+          </fieldset>
+          <button class="button primary run-button" id="compile" type="button"><span aria-hidden="true">▶</span> Compile</button>
+        </div>
+        <div class="workbench-grid">
+          <div class="editor-pane">
+            <div class="pane-heading">
+              <label for="source"><span class="language-icon" aria-hidden="true">C</span> <span id="source-name">affine.c</span></label>
+              <button class="text-button" id="reset" type="button">Reset</button>
+            </div>
+            <div class="editor-body">
+              <pre class="line-numbers" id="line-numbers" aria-hidden="true"></pre>
+              <textarea id="source" aria-label="C source code" aria-describedby="compile-note" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off"></textarea>
+            </div>
+          </div>
+          <div class="assembly-pane">
+            <div class="pane-heading">
+              <strong><span class="language-icon" aria-hidden="true">≡</span> <span id="output-title">Assembly</span></strong>
+              <button class="text-button" type="button" id="copy-output">Copy</button>
+            </div>
+            <pre class="assembly-code" id="output" tabindex="0" aria-label="Compiler output"><code></code></pre>
+          </div>
+        </div>
+        <div class="workbench-footer">
+          <span class="compile-status" id="compile-status" role="status"></span>
+          <span id="compile-note">Compile sends the editor contents to <a href="https://godbolt.org/">Compiler Explorer</a>.</span>
+        </div>
+      </div>
+      <p class="example-note" id="example-note"></p>
+      <details class="local-details">
+        <summary>Run this program locally</summary>
+        <div class="local-body">
+          <p>Use an installed <code>ccomp</code> or <a href="#develop">build it from source</a>. The downloaded file includes a small test in <code>main</code>. A run exits with status <code>0</code> when that test passes.</p>
+          <a href="data:text/plain," id="download-source" class="button outline" download>Download preset</a>
+          <div class="snippet light-snippet">
+            <div class="snippet-bar"><span>Terminal</span><button class="text-button" type="button" data-copy="local-commands">Copy</button></div>
+            <pre tabindex="0"><code id="local-commands"></code></pre>
+          </div>
+          <p>In a build checkout, save the preset there and use <code>./ccomp</code>. For the link command, use <code>./ccomp -stdlib ./runtime</code> to find the freshly built runtime library.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="lab-section" id="pipeline" aria-labelledby="pipeline-title">
+      <div class="section-heading">
+        <h2 id="pipeline-title">Follow the pipeline</h2>
+        <p>Trace <code>choose.c</code> from source to assembly. Select a stage to see its representation and where to find it in the compiler.</p>
+      </div>
+      <div class="pipeline-box">
+        <div class="pipeline-tabs" id="stage-tabs" role="tablist" aria-label="Selected compiler stages">
+          <button id="tab-c" type="button" role="tab" aria-controls="stage-panel" aria-selected="false" tabindex="-1" data-stage="c">C</button>
+          <button id="tab-clight" type="button" role="tab" aria-controls="stage-panel" aria-selected="false" tabindex="-1" data-stage="clight">Clight</button>
+          <button id="tab-cminor" type="button" role="tab" aria-controls="stage-panel" aria-selected="false" tabindex="-1" data-stage="cminor">Cminor</button>
+          <button id="tab-rtl" type="button" role="tab" aria-controls="stage-panel" aria-selected="true" data-stage="rtl">RTL</button>
+          <button id="tab-mach" type="button" role="tab" aria-controls="stage-panel" aria-selected="false" tabindex="-1" data-stage="mach">Mach</button>
+          <button id="tab-asm" type="button" role="tab" aria-controls="stage-panel" aria-selected="false" tabindex="-1" data-stage="asm">Asm</button>
+        </div>
+        <div class="stage-panel" id="stage-panel" role="tabpanel" aria-labelledby="tab-rtl" tabindex="0">
+          <div class="stage-description">
+            <p class="file-label" id="stage-file"></p>
+            <h3 id="stage-title"></h3>
+            <p id="stage-description"></p>
+            <div class="rtl-control" id="rtl-control">
+              <label for="rtl-view">Constant propagation</label>
+              <select id="rtl-view">
+                <option value="before">Before · .rtl.3</option>
+                <option value="after">After · .rtl.4</option>
+              </select>
+            </div>
+            <a id="stage-link" class="source-link" href="https://compcert.org/doc/">Open upstream source</a>
+          </div>
+          <div class="snippet">
+            <div class="snippet-bar"><span id="stage-caption"></span><button class="text-button" type="button" data-copy="stage-code">Copy</button></div>
+            <pre tabindex="0"><code id="stage-code"></code></pre>
+          </div>
+        </div>
+        <div class="pipeline-footer"><a href="https://compcert.org/doc/">Full pass list and correctness proofs</a><span>Captured on Apple silicon · CompCert v3.18 tag</span></div>
+      </div>
+      <p class="scope-note">The semantic preservation theorem connects CompCert C to its assembly model for successful compilation. The driver also invokes external tools for preprocessing, assembling and linking. <a href="https://compcert.org/man/manual001.html">Read about the proof boundary</a>.</p>
+      <details class="local-details">
+        <summary>Generate these files locally</summary>
+        <div class="local-body">
+          <a class="button outline" id="trace-download" href="data:text/plain," download>Download choose.c</a>
+          <div class="snippet light-snippet">
+            <div class="snippet-bar"><span>Terminal</span><button class="text-button" type="button" data-copy="trace-command">Copy</button></div>
+            <pre tabindex="0"><code id="trace-command"></code></pre>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="lab-section" id="develop" aria-labelledby="develop-title">
+      <div class="section-heading">
+        <h2 id="develop-title">Change a verified pass</h2>
+        <p>Build the compiler, trace constant propagation, then change how far it can look ahead through a control-flow graph.</p>
+      </div>
+      <div class="developer-box">
+        <div class="developer-tabs" id="dev-tabs" role="tablist" aria-label="Development walkthrough">
+          <button id="tab-build" type="button" role="tab" aria-controls="dev-panel" aria-selected="true" data-step="build">Build</button>
+          <button id="tab-trace" type="button" role="tab" aria-controls="dev-panel" aria-selected="false" tabindex="-1" data-step="trace">Trace</button>
+          <button id="tab-modify" type="button" role="tab" aria-controls="dev-panel" aria-selected="false" tabindex="-1" data-step="modify">Modify</button>
+          <button id="tab-validate" type="button" role="tab" aria-controls="dev-panel" aria-selected="false" tabindex="-1" data-step="validate">Validate</button>
+        </div>
+        <div class="developer-panel" id="dev-panel" role="tabpanel" aria-labelledby="tab-build" tabindex="0">
+          <div class="developer-description">
+            <h3 id="dev-title"></h3>
+            <p id="dev-description"></p>
+            <div class="control-group" id="target-control">
+              <label for="target">Native build target</label>
+              <select id="target">
+                <option value="x86_64-linux">Linux · x86-64</option>
+                <option value="aarch64-linux">Linux · ARM64</option>
+                <option value="aarch64-macos">macOS · Apple silicon</option>
+                <option value="x86_64-macos">macOS · Intel</option>
+              </select>
+            </div>
+            <a id="dev-download" class="button outline" href="data:text/plain," download hidden>Download choose.c</a>
+            <a id="dev-link" class="source-link" href="https://compcert.org/man/manual002.html"></a>
+          </div>
+          <div class="snippet">
+            <div class="snippet-bar"><span id="dev-caption"></span><button class="text-button" type="button" data-copy="dev-code">Copy</button></div>
+            <pre tabindex="0"><code id="dev-code"></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="experiment">
+        <div class="experiment-copy">
+          <h3>Try the lookahead budget</h3>
+          <p>This model follows <code>successor_rec</code> over a small RTL graph. Give it a known condition and enough fuel to bypass the branch.</p>
+          <div class="experiment-controls">
+            <div class="control-group">
+              <label for="condition">Known at compile time</label>
+              <select id="condition">
+                <option value="true">Condition is true</option>
+                <option value="false">Condition is false</option>
+                <option value="unknown">Condition is unknown</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="fuel">Fuel (steps)</label>
+              <select id="fuel">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="10">10 (upstream)</option>
+              </select>
+            </div>
+          </div>
+          <p class="experiment-result" id="experiment-result" role="status"></p>
+        </div>
+        <ol class="cfg" aria-label="Example RTL control-flow graph">
+          <li class="cfg-entry" data-node="entry"><span>L1</span><code>Inop</code></li>
+          <li class="cfg-branch" data-node="branch"><span>L2</span><code>Icond</code></li>
+          <li class="cfg-true" data-node="true"><span>L3 · true edge</span><code>Ireturn</code></li>
+          <li class="cfg-false" data-node="false"><span>L4 · false edge</span><code>Ireturn</code></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+  <footer class="frame lab-footer">
+    <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">[›]</span> CompCert Lab</a>
+    <nav aria-label="References">
+      <a href="https://compcert.org/man/">User manual</a>
+      <a href="https://github.com/AbsInt/CompCert/tree/v3.18">Source and license</a>
+      <a href="../../">Zhiyang Chen</a>
+    </nav>
+  </footer>
+</body>
+</html>

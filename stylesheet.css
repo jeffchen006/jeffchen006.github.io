@@ -933,8 +933,9 @@ footer button:hover {
   }
 }
 
-/* A quiet entrance beside the footer copyright. */
-footer .timeline-entry {
+/* Quiet entrances beside the footer copyright. */
+footer .timeline-entry,
+footer .lab-entry {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -945,7 +946,8 @@ footer .timeline-entry {
   vertical-align: middle;
 }
 
-footer .timeline-entry:focus-visible {
+footer .timeline-entry:focus-visible,
+footer .lab-entry:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
